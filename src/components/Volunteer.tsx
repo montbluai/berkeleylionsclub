@@ -1,6 +1,7 @@
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { EventsCalendar } from './EventsCalendar';
-import crabFeedPoster from 'figma:asset/ed80879201c1cf41cfe0b5bc0b92edde2982635a.png';
+
+const crabFeedPoster = 'https://i.imgur.com/bq8P4wS.png';
 
 export function Volunteer() {
   return (
