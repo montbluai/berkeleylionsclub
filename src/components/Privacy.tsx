@@ -1,4 +1,4 @@
-import { FileText, Shield, Eye } from 'lucide-react@0.487.0';
+import { FileText, Shield, Eye } from 'lucide-react';
 
 type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload';
 

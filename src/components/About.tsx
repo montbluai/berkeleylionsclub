@@ -1,4 +1,4 @@
-import { ExternalLink, Globe, History, Calendar, MapPin } from 'lucide-react@0.487.0';
+import { ExternalLink, Globe, History, Calendar, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 
 export function About() {

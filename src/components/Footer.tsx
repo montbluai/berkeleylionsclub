@@ -1,4 +1,4 @@
-import { Facebook, Instagram } from 'lucide-react@0.487.0';
+import { Facebook, Instagram } from 'lucide-react';
 
 // Custom TikTok SVG Icon Component
 const TikTokIcon = ({ size = 20 }: { size?: number }) => (

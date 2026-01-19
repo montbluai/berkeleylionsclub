@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Heart, Users, HandHeart, Pause, Play } from 'lucide-react@0.487.0';
+import { ChevronLeft, ChevronRight, Heart, Users, HandHeart, Pause, Play } from 'lucide-react';
 import { Button } from './ui/button';
 import { EventsCalendar } from './EventsCalendar';
 import { EmailSignup } from './EmailSignup';

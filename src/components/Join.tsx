@@ -1,4 +1,4 @@
-import { DollarSign, UserCheck, Award, Heart } from 'lucide-react@0.487.0';
+import { DollarSign, UserCheck, Award, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 
 export function Join() {

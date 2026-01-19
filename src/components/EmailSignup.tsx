@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react@0.487.0';
+import { Mail } from 'lucide-react';
 
 export function EmailSignup() {
   return (

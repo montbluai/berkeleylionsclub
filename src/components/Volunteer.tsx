@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users } from 'lucide-react@0.487.0';
+import { Calendar, MapPin, Users } from 'lucide-react';
 import { EventsCalendar } from './EventsCalendar';
 import crabFeedPoster from 'figma:asset/ed80879201c1cf41cfe0b5bc0b92edde2982635a.png';
 

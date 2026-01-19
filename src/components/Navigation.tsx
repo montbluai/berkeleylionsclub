@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react@0.487.0';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'terms';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar as CalendarIcon, Check } from 'lucide-react@0.487.0';
+import { Calendar as CalendarIcon, Check } from 'lucide-react';
 
 interface EventsCalendarProps {
   calendars: {

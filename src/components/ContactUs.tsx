@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Mail, Users, Video } from 'lucide-react@0.487.0';
+import { Calendar, MapPin, Mail, Users, Video } from 'lucide-react';
 
 export function ContactUs() {
   return (

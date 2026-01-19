@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Upload, Image as ImageIcon, X, CheckCircle, AlertCircle, Trash2, RefreshCw } from 'lucide-react@0.487.0';
+import { Upload, Image as ImageIcon, X, CheckCircle, AlertCircle, Trash2, RefreshCw } from 'lucide-react';
 
 interface GalleryPhoto {
   id: string;

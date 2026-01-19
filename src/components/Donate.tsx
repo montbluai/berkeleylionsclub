@@ -1,4 +1,4 @@
-import { Shield, Glasses, Smartphone, Ear, FileHeart, MapPin, ExternalLink, X } from 'lucide-react@0.487.0';
+import { Shield, Glasses, Smartphone, Ear, FileHeart, MapPin, ExternalLink, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
 
