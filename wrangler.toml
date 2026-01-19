@@ -1,4 +1,5 @@
-name = "berkeley-lions-club"
+# wrangler.toml
+name = 'berkeleylionsclub'
 compatibility_date = "2026-01-10"
 
 [build]
