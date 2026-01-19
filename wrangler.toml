@@ -1,5 +1,8 @@
 name = "berkeley-lions-club"
 compatibility_date = "2026-01-10"
 
+[build]
+command = "npm run build"
+
 [assets]
 directory = "./dist"
