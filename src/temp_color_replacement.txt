@@ -1,0 +1,11 @@
+COLOR REPLACEMENT TRACKER
+=========================
+
+Replacing across entire codebase:
+- OLD BLUE: #1740a5 → NEW BLUE: #00338D (Lions Blue)
+- OLD GOLD: #f2ca47 → NEW GOLD: #EBB700 (Lions Yellow)  
+- PURPLE: #7A2582 (unchanged - already correct)
+
+Files to update: 16 component files
+
+Status: STARTING
