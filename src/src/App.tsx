@@ -12,9 +12,10 @@ import { TermsOfUse } from './components/TermsOfUse';
 import { Disclosures } from './components/Disclosures';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
-import { AdminDashboard } from './components/AdminDashboard';
+import { AdminGalleryUpload } from './components/AdminGalleryUpload';
+import { AdminEventUpload } from './components/AdminEventUpload';
 
-type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload';
+type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload' | 'admin-events';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -50,7 +51,9 @@ export default function App() {
       case 'disclosures':
         return <Disclosures />;
       case 'admin-upload':
-        return <AdminDashboard />;
+        return <AdminGalleryUpload />;
+      case 'admin-events':
+        return <AdminEventUpload />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }

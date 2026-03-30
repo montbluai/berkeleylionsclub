@@ -1,4 +1,4 @@
-"use client";
+import "@/styles/globals.css";
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
