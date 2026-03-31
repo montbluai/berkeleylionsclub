@@ -1,0 +1,68 @@
+2026-03-31T07:02:03.331511Z	Cloning repository...
+2026-03-31T07:02:03.827997Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-31T07:02:03.828353Z	 * branch            9b7b51427dc363364f2fdeedd078ebd43693767e -> FETCH_HEAD
+2026-03-31T07:02:03.828477Z	
+2026-03-31T07:02:03.857211Z	HEAD is now at 9b7b514 Fix package-lock.json sync issue
+2026-03-31T07:02:03.857457Z	
+2026-03-31T07:02:03.902798Z	
+2026-03-31T07:02:03.903162Z	Using v2 root directory strategy
+2026-03-31T07:02:03.917571Z	Success: Finished cloning repository files
+2026-03-31T07:02:06.218864Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-31T07:02:06.219253Z	
+2026-03-31T07:02:07.353127Z	No Wrangler configuration file found. Continuing.
+2026-03-31T07:02:07.570086Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-03-31T07:02:07.570484Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-31T07:02:14.642488Z	
+2026-03-31T07:02:14.642895Z	added 226 packages, and audited 227 packages in 7s
+2026-03-31T07:02:14.643246Z	
+2026-03-31T07:02:14.643334Z	21 packages are looking for funding
+2026-03-31T07:02:14.643402Z	  run `npm fund` for details
+2026-03-31T07:02:14.649292Z	
+2026-03-31T07:02:14.649412Z	1 moderate severity vulnerability
+2026-03-31T07:02:14.649469Z	
+2026-03-31T07:02:14.649552Z	To address all issues, run:
+2026-03-31T07:02:14.649613Z	  npm audit fix --force
+2026-03-31T07:02:14.649664Z	
+2026-03-31T07:02:14.649701Z	Run `npm audit` for details.
+2026-03-31T07:02:14.773638Z	Executing user command: npm run build
+2026-03-31T07:02:14.986972Z	
+2026-03-31T07:02:14.987196Z	> Berkeley Lions Club New Official Website@0.1.0 build
+2026-03-31T07:02:14.987254Z	> vite build
+2026-03-31T07:02:14.987292Z	
+2026-03-31T07:02:15.184992Z	/opt/buildhome/repo/node_modules/rollup/dist/native.js:115
+2026-03-31T07:02:15.185209Z			throw new Error(
+2026-03-31T07:02:15.185256Z			      ^
+2026-03-31T07:02:15.185293Z	
+2026-03-31T07:02:15.185329Z	Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+2026-03-31T07:02:15.185381Z	    at requireWithFriendlyError (/opt/buildhome/repo/node_modules/rollup/dist/native.js:115:9)
+2026-03-31T07:02:15.185419Z	    at Object.<anonymous> (/opt/buildhome/repo/node_modules/rollup/dist/native.js:124:76)
+2026-03-31T07:02:15.185457Z	    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+2026-03-31T07:02:15.185491Z	    at Object..js (node:internal/modules/cjs/loader:1895:10)
+2026-03-31T07:02:15.185553Z	    at Module.load (node:internal/modules/cjs/loader:1465:32)
+2026-03-31T07:02:15.185602Z	    at Function._load (node:internal/modules/cjs/loader:1282:12)
+2026-03-31T07:02:15.185639Z	    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+2026-03-31T07:02:15.185676Z	    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+2026-03-31T07:02:15.185712Z	    at cjsLoader (node:internal/modules/esm/translators:266:5)
+2026-03-31T07:02:15.185747Z	    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:200:7) {
+2026-03-31T07:02:15.185786Z	  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+2026-03-31T07:02:15.185821Z	  Require stack:
+2026-03-31T07:02:15.185855Z	  - /opt/buildhome/repo/node_modules/rollup/dist/native.js
+2026-03-31T07:02:15.185896Z	      at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+2026-03-31T07:02:15.185931Z	      at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+2026-03-31T07:02:15.185966Z	      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+2026-03-31T07:02:15.186001Z	      at Function._load (node:internal/modules/cjs/loader:1211:37)
+2026-03-31T07:02:15.186035Z	      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+2026-03-31T07:02:15.186068Z	      at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+2026-03-31T07:02:15.186101Z	      at Module.require (node:internal/modules/cjs/loader:1487:12)
+2026-03-31T07:02:15.186134Z	      at require (node:internal/modules/helpers:135:16)
+2026-03-31T07:02:15.186165Z	      at requireWithFriendlyError (/opt/buildhome/repo/node_modules/rollup/dist/native.js:97:10)
+2026-03-31T07:02:15.186195Z	      at Object.<anonymous> (/opt/buildhome/repo/node_modules/rollup/dist/native.js:124:76) {
+2026-03-31T07:02:15.186229Z	    code: 'MODULE_NOT_FOUND',
+2026-03-31T07:02:15.186258Z	    requireStack: [ '/opt/buildhome/repo/node_modules/rollup/dist/native.js' ]
+2026-03-31T07:02:15.186294Z	  }
+2026-03-31T07:02:15.186328Z	}
+2026-03-31T07:02:15.186359Z	
+2026-03-31T07:02:15.186391Z	Node.js v22.16.0
+2026-03-31T07:02:15.204321Z	Failed: Error while executing user command. Exited with error code: 1
+2026-03-31T07:02:15.210557Z	Failed: build command exited with code: 1
+2026-03-31T07:02:16.559363Z	Failed: error occurred while running build command

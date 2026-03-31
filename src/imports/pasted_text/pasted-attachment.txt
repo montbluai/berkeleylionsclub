@@ -1,0 +1,82 @@
+2026-03-31T06:58:43.103639Z	Cloning repository...
+2026-03-31T06:58:43.572121Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-31T06:58:43.572436Z	 * branch            735f7099dd978176fcdcd97922ccd1e845314e37 -> FETCH_HEAD
+2026-03-31T06:58:43.572529Z	
+2026-03-31T06:58:43.598076Z	HEAD is now at 735f709 Add Club Leadership management tab to admin dashboard
+2026-03-31T06:58:43.598309Z	
+2026-03-31T06:58:43.635608Z	
+2026-03-31T06:58:43.635864Z	Using v2 root directory strategy
+2026-03-31T06:58:43.646856Z	Success: Finished cloning repository files
+2026-03-31T06:58:45.621728Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-31T06:58:45.622196Z	
+2026-03-31T06:58:46.740877Z	No Wrangler configuration file found. Continuing.
+2026-03-31T06:58:46.931607Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-03-31T06:58:46.932089Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-31T06:58:51.023127Z	npm error code EUSAGE
+2026-03-31T06:58:51.023398Z	npm error
+2026-03-31T06:58:51.023457Z	npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-03-31T06:58:51.023499Z	npm error
+2026-03-31T06:58:51.023537Z	npm error Invalid: lock file's @tailwindcss/vite@4.2.2 does not satisfy @tailwindcss/vite@4.1.12
+2026-03-31T06:58:51.023571Z	npm error Invalid: lock file's @types/node@25.5.0 does not satisfy @types/node@20.19.37
+2026-03-31T06:58:51.023609Z	npm error Missing: next-themes@0.4.6 from lock file
+2026-03-31T06:58:51.023643Z	npm error Invalid: lock file's tailwindcss@4.2.2 does not satisfy tailwindcss@4.1.12
+2026-03-31T06:58:51.023676Z	npm error Missing: tw-animate-css@1.4.0 from lock file
+2026-03-31T06:58:51.023713Z	npm error Invalid: lock file's vite@6.4.1 does not satisfy vite@6.3.5
+2026-03-31T06:58:51.02375Z	npm error Missing: @tailwindcss/node@4.1.12 from lock file
+2026-03-31T06:58:51.023781Z	npm error Missing: @tailwindcss/oxide@4.1.12 from lock file
+2026-03-31T06:58:51.023813Z	npm error Invalid: lock file's undici-types@7.18.2 does not satisfy undici-types@6.21.0
+2026-03-31T06:58:51.023846Z	npm error Missing: lightningcss@1.30.1 from lock file
+2026-03-31T06:58:51.02388Z	npm error Missing: @tailwindcss/oxide-android-arm64@4.1.12 from lock file
+2026-03-31T06:58:51.023911Z	npm error Missing: @tailwindcss/oxide-darwin-arm64@4.1.12 from lock file
+2026-03-31T06:58:51.023941Z	npm error Missing: @tailwindcss/oxide-darwin-x64@4.1.12 from lock file
+2026-03-31T06:58:51.023973Z	npm error Missing: @tailwindcss/oxide-freebsd-x64@4.1.12 from lock file
+2026-03-31T06:58:51.024004Z	npm error Missing: @tailwindcss/oxide-linux-arm-gnueabihf@4.1.12 from lock file
+2026-03-31T06:58:51.024047Z	npm error Missing: @tailwindcss/oxide-linux-arm64-gnu@4.1.12 from lock file
+2026-03-31T06:58:51.024082Z	npm error Missing: @tailwindcss/oxide-linux-arm64-musl@4.1.12 from lock file
+2026-03-31T06:58:51.02412Z	npm error Missing: @tailwindcss/oxide-linux-x64-gnu@4.1.12 from lock file
+2026-03-31T06:58:51.024162Z	npm error Missing: @tailwindcss/oxide-linux-x64-musl@4.1.12 from lock file
+2026-03-31T06:58:51.024197Z	npm error Missing: @tailwindcss/oxide-wasm32-wasi@4.1.12 from lock file
+2026-03-31T06:58:51.024241Z	npm error Missing: @tailwindcss/oxide-win32-arm64-msvc@4.1.12 from lock file
+2026-03-31T06:58:51.024281Z	npm error Missing: @tailwindcss/oxide-win32-x64-msvc@4.1.12 from lock file
+2026-03-31T06:58:51.024326Z	npm error Missing: tar@7.5.13 from lock file
+2026-03-31T06:58:51.02437Z	npm error Missing: @isaacs/fs-minipass@4.0.1 from lock file
+2026-03-31T06:58:51.024404Z	npm error Missing: chownr@3.0.0 from lock file
+2026-03-31T06:58:51.024437Z	npm error Missing: minipass@7.1.3 from lock file
+2026-03-31T06:58:51.02447Z	npm error Missing: minizlib@3.1.0 from lock file
+2026-03-31T06:58:51.0245Z	npm error Missing: yallist@5.0.0 from lock file
+2026-03-31T06:58:51.024534Z	npm error Missing: lightningcss-darwin-arm64@1.30.1 from lock file
+2026-03-31T06:58:51.024571Z	npm error Missing: lightningcss-darwin-x64@1.30.1 from lock file
+2026-03-31T06:58:51.024604Z	npm error Missing: lightningcss-freebsd-x64@1.30.1 from lock file
+2026-03-31T06:58:51.024636Z	npm error Missing: lightningcss-linux-arm-gnueabihf@1.30.1 from lock file
+2026-03-31T06:58:51.024664Z	npm error Missing: lightningcss-linux-arm64-gnu@1.30.1 from lock file
+2026-03-31T06:58:51.024692Z	npm error Missing: lightningcss-linux-arm64-musl@1.30.1 from lock file
+2026-03-31T06:58:51.024724Z	npm error Missing: lightningcss-linux-x64-gnu@1.30.1 from lock file
+2026-03-31T06:58:51.024756Z	npm error Missing: lightningcss-linux-x64-musl@1.30.1 from lock file
+2026-03-31T06:58:51.024793Z	npm error Missing: lightningcss-win32-arm64-msvc@1.30.1 from lock file
+2026-03-31T06:58:51.024837Z	npm error Missing: lightningcss-win32-x64-msvc@1.30.1 from lock file
+2026-03-31T06:58:51.024868Z	npm error
+2026-03-31T06:58:51.0249Z	npm error Clean install a project
+2026-03-31T06:58:51.024934Z	npm error
+2026-03-31T06:58:51.024975Z	npm error Usage:
+2026-03-31T06:58:51.025009Z	npm error npm ci
+2026-03-31T06:58:51.025045Z	npm error
+2026-03-31T06:58:51.025079Z	npm error Options:
+2026-03-31T06:58:51.025128Z	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-03-31T06:58:51.025169Z	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-03-31T06:58:51.025196Z	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-03-31T06:58:51.025223Z	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-03-31T06:58:51.025294Z	npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-03-31T06:58:51.025331Z	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-03-31T06:58:51.025359Z	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-03-31T06:58:51.025385Z	npm error
+2026-03-31T06:58:51.025411Z	npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-03-31T06:58:51.025437Z	npm error
+2026-03-31T06:58:51.025469Z	npm error Run "npm help ci" for more info
+2026-03-31T06:58:51.025502Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-03-31T06_58_47_299Z-debug-0.log
+2026-03-31T06:58:51.078533Z	Error: Exit with error code: 1
+2026-03-31T06:58:51.07886Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-03-31T06:58:51.078933Z	    at Object.onceWrapper (node:events:652:26)
+2026-03-31T06:58:51.078999Z	    at ChildProcess.emit (node:events:537:28)
+2026-03-31T06:58:51.07904Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-03-31T06:58:51.084179Z	Failed: build command exited with code: 1
+2026-03-31T06:58:52.166Z	Failed: error occurred while running build command
