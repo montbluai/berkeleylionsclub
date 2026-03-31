@@ -1,0 +1,89 @@
+2026-03-30T02:04:47.858641Z	Cloning repository...
+2026-03-30T02:04:49.781363Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-30T02:04:49.78176Z	 * branch            a1fa998aa4c03b6c8f3d9b7a8b2a4ade99315e86 -> FETCH_HEAD
+2026-03-30T02:04:49.781998Z	
+2026-03-30T02:04:51.223816Z	HEAD is now at a1fa998 Force rebuild - clear Cloudflare cache
+2026-03-30T02:04:51.224244Z	
+2026-03-30T02:04:51.268231Z	
+2026-03-30T02:04:51.268585Z	Using v2 root directory strategy
+2026-03-30T02:04:51.280387Z	Success: Finished cloning repository files
+2026-03-30T02:04:53.051584Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-30T02:04:53.052173Z	
+2026-03-30T02:04:54.144203Z	No Wrangler configuration file found. Continuing.
+2026-03-30T02:04:54.30699Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-03-30T02:04:54.314545Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-30T02:04:59.285997Z	npm error code EUSAGE
+2026-03-30T02:04:59.286304Z	npm error
+2026-03-30T02:04:59.286361Z	npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-03-30T02:04:59.286404Z	npm error
+2026-03-30T02:04:59.286443Z	npm error Missing: @supabase/supabase-js@2.100.1 from lock file
+2026-03-30T02:04:59.286473Z	npm error Missing: @tailwindcss/vite@4.1.12 from lock file
+2026-03-30T02:04:59.286506Z	npm error Missing: next-themes@0.4.6 from lock file
+2026-03-30T02:04:59.286535Z	npm error Invalid: lock file's tailwindcss@4.1.18 does not satisfy tailwindcss@4.1.12
+2026-03-30T02:04:59.286572Z	npm error Missing: tw-animate-css@1.4.0 from lock file
+2026-03-30T02:04:59.286599Z	npm error Missing: @supabase/auth-js@2.100.1 from lock file
+2026-03-30T02:04:59.286632Z	npm error Missing: @supabase/functions-js@2.100.1 from lock file
+2026-03-30T02:04:59.28666Z	npm error Missing: @supabase/postgrest-js@2.100.1 from lock file
+2026-03-30T02:04:59.286702Z	npm error Missing: @supabase/realtime-js@2.100.1 from lock file
+2026-03-30T02:04:59.286728Z	npm error Missing: @supabase/storage-js@2.100.1 from lock file
+2026-03-30T02:04:59.286755Z	npm error Missing: @supabase/phoenix@0.4.0 from lock file
+2026-03-30T02:04:59.286781Z	npm error Missing: @types/ws@8.18.1 from lock file
+2026-03-30T02:04:59.286807Z	npm error Missing: ws@8.20.0 from lock file
+2026-03-30T02:04:59.286836Z	npm error Missing: iceberg-js@0.8.1 from lock file
+2026-03-30T02:04:59.286864Z	npm error Missing: @tailwindcss/node@4.1.12 from lock file
+2026-03-30T02:04:59.286911Z	npm error Missing: @tailwindcss/oxide@4.1.12 from lock file
+2026-03-30T02:04:59.286949Z	npm error Missing: lightningcss@1.30.1 from lock file
+2026-03-30T02:04:59.28701Z	npm error Missing: @tailwindcss/oxide-android-arm64@4.1.12 from lock file
+2026-03-30T02:04:59.287055Z	npm error Missing: @tailwindcss/oxide-darwin-arm64@4.1.12 from lock file
+2026-03-30T02:04:59.287086Z	npm error Missing: @tailwindcss/oxide-darwin-x64@4.1.12 from lock file
+2026-03-30T02:04:59.287116Z	npm error Missing: @tailwindcss/oxide-freebsd-x64@4.1.12 from lock file
+2026-03-30T02:04:59.287145Z	npm error Missing: @tailwindcss/oxide-linux-arm-gnueabihf@4.1.12 from lock file
+2026-03-30T02:04:59.287214Z	npm error Missing: @tailwindcss/oxide-linux-arm64-gnu@4.1.12 from lock file
+2026-03-30T02:04:59.287256Z	npm error Missing: @tailwindcss/oxide-linux-arm64-musl@4.1.12 from lock file
+2026-03-30T02:04:59.287318Z	npm error Missing: @tailwindcss/oxide-linux-x64-gnu@4.1.12 from lock file
+2026-03-30T02:04:59.287357Z	npm error Missing: @tailwindcss/oxide-linux-x64-musl@4.1.12 from lock file
+2026-03-30T02:04:59.287389Z	npm error Missing: @tailwindcss/oxide-wasm32-wasi@4.1.12 from lock file
+2026-03-30T02:04:59.287479Z	npm error Missing: @tailwindcss/oxide-win32-arm64-msvc@4.1.12 from lock file
+2026-03-30T02:04:59.287517Z	npm error Missing: @tailwindcss/oxide-win32-x64-msvc@4.1.12 from lock file
+2026-03-30T02:04:59.287548Z	npm error Missing: tar@7.5.13 from lock file
+2026-03-30T02:04:59.287575Z	npm error Missing: @isaacs/fs-minipass@4.0.1 from lock file
+2026-03-30T02:04:59.287601Z	npm error Missing: chownr@3.0.0 from lock file
+2026-03-30T02:04:59.287627Z	npm error Missing: minipass@7.1.3 from lock file
+2026-03-30T02:04:59.287656Z	npm error Missing: minizlib@3.1.0 from lock file
+2026-03-30T02:04:59.287694Z	npm error Missing: yallist@5.0.0 from lock file
+2026-03-30T02:04:59.287731Z	npm error Missing: lightningcss-darwin-arm64@1.30.1 from lock file
+2026-03-30T02:04:59.287777Z	npm error Missing: lightningcss-darwin-x64@1.30.1 from lock file
+2026-03-30T02:04:59.287805Z	npm error Missing: lightningcss-freebsd-x64@1.30.1 from lock file
+2026-03-30T02:04:59.287841Z	npm error Missing: lightningcss-linux-arm-gnueabihf@1.30.1 from lock file
+2026-03-30T02:04:59.28787Z	npm error Missing: lightningcss-linux-arm64-gnu@1.30.1 from lock file
+2026-03-30T02:04:59.287896Z	npm error Missing: lightningcss-linux-arm64-musl@1.30.1 from lock file
+2026-03-30T02:04:59.287933Z	npm error Missing: lightningcss-linux-x64-gnu@1.30.1 from lock file
+2026-03-30T02:04:59.287985Z	npm error Missing: lightningcss-linux-x64-musl@1.30.1 from lock file
+2026-03-30T02:04:59.288016Z	npm error Missing: lightningcss-win32-arm64-msvc@1.30.1 from lock file
+2026-03-30T02:04:59.288079Z	npm error Missing: lightningcss-win32-x64-msvc@1.30.1 from lock file
+2026-03-30T02:04:59.28812Z	npm error
+2026-03-30T02:04:59.288148Z	npm error Clean install a project
+2026-03-30T02:04:59.288174Z	npm error
+2026-03-30T02:04:59.2882Z	npm error Usage:
+2026-03-30T02:04:59.288255Z	npm error npm ci
+2026-03-30T02:04:59.288295Z	npm error
+2026-03-30T02:04:59.288324Z	npm error Options:
+2026-03-30T02:04:59.288358Z	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-03-30T02:04:59.288385Z	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-03-30T02:04:59.288411Z	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-03-30T02:04:59.288442Z	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-03-30T02:04:59.288468Z	npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-03-30T02:04:59.288493Z	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-03-30T02:04:59.288519Z	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-03-30T02:04:59.288545Z	npm error
+2026-03-30T02:04:59.288571Z	npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-03-30T02:04:59.288601Z	npm error
+2026-03-30T02:04:59.288634Z	npm error Run "npm help ci" for more info
+2026-03-30T02:04:59.288673Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-03-30T02_04_54_680Z-debug-0.log
+2026-03-30T02:04:59.360348Z	Error: Exit with error code: 1
+2026-03-30T02:04:59.360831Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-03-30T02:04:59.360916Z	    at Object.onceWrapper (node:events:652:26)
+2026-03-30T02:04:59.360992Z	    at ChildProcess.emit (node:events:537:28)
+2026-03-30T02:04:59.361035Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-03-30T02:04:59.366486Z	Failed: build command exited with code: 1
+2026-03-30T02:05:01.627815Z	Failed: error occurred while running build command
