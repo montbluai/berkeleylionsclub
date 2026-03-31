@@ -1,0 +1,87 @@
+2026-03-31T07:40:12.028371Z	Cloning repository...
+2026-03-31T07:40:12.504202Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-31T07:40:12.504574Z	 * branch            219930356ce8d330a0d38ab28a47eb6de08b6a78 -> FETCH_HEAD
+2026-03-31T07:40:12.504644Z	
+2026-03-31T07:40:12.529046Z	HEAD is now at 2199303 Update Tailwind CSS to v4.2.2 to match package-lock.json
+2026-03-31T07:40:12.529291Z	
+2026-03-31T07:40:12.574995Z	
+2026-03-31T07:40:12.5754Z	Using v2 root directory strategy
+2026-03-31T07:40:12.595959Z	Success: Finished cloning repository files
+2026-03-31T07:40:14.606632Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-31T07:40:14.607062Z	
+2026-03-31T07:40:15.695147Z	No Wrangler configuration file found. Continuing.
+2026-03-31T07:40:15.844713Z	Detected the following tools from environment: nodejs@18.20.8, npm@10.9.2
+2026-03-31T07:40:15.8452Z	Installing nodejs 18.20.8
+2026-03-31T07:40:16.334253Z	Trying to update node-build... ok
+2026-03-31T07:40:16.38634Z	To follow progress, use 'tail -f /tmp/node-build.20260331074016.797.log' or pass --verbose
+2026-03-31T07:40:16.436556Z	Downloading node-v18.20.8-linux-x64.tar.gz...
+2026-03-31T07:40:16.939094Z	-> https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.gz
+2026-03-31T07:40:18.992025Z	
+2026-03-31T07:40:18.992373Z	WARNING: node-v18.20.8-linux-x64 is in LTS Maintenance mode and nearing its end of life.
+2026-03-31T07:40:18.992426Z	It only receives *critical* security updates, *critical* bug fixes and documentation updates.
+2026-03-31T07:40:18.992459Z	
+2026-03-31T07:40:18.992496Z	Installing node-v18.20.8-linux-x64...
+2026-03-31T07:40:19.569427Z	Installed node-v18.20.8-linux-x64 to /opt/buildhome/.asdf/installs/nodejs/18.20.8
+2026-03-31T07:40:19.569786Z	
+2026-03-31T07:40:20.143959Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-31T07:40:23.358724Z	npm warn EBADENGINE Unsupported engine {
+2026-03-31T07:40:23.358995Z	npm warn EBADENGINE   package: '@tailwindcss/oxide@4.2.2',
+2026-03-31T07:40:23.35905Z	npm warn EBADENGINE   required: { node: '>= 20' },
+2026-03-31T07:40:23.359106Z	npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+2026-03-31T07:40:23.359136Z	npm warn EBADENGINE }
+2026-03-31T07:40:23.370947Z	npm error code EUSAGE
+2026-03-31T07:40:23.371173Z	npm error
+2026-03-31T07:40:23.371241Z	npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-03-31T07:40:23.371287Z	npm error
+2026-03-31T07:40:23.371324Z	npm error Invalid: lock file's @tailwindcss/vite@4.1.12 does not satisfy @tailwindcss/vite@4.2.2
+2026-03-31T07:40:23.371375Z	npm error Invalid: lock file's @tailwindcss/node@4.1.12 does not satisfy @tailwindcss/node@4.2.2
+2026-03-31T07:40:23.37141Z	npm error Invalid: lock file's @tailwindcss/oxide@4.1.12 does not satisfy @tailwindcss/oxide@4.2.2
+2026-03-31T07:40:23.371475Z	npm error Invalid: lock file's lightningcss@1.30.1 does not satisfy lightningcss@1.32.0
+2026-03-31T07:40:23.371526Z	npm error Invalid: lock file's @tailwindcss/oxide-android-arm64@4.1.12 does not satisfy @tailwindcss/oxide-android-arm64@4.2.2
+2026-03-31T07:40:23.371583Z	npm error Invalid: lock file's @tailwindcss/oxide-darwin-arm64@4.1.12 does not satisfy @tailwindcss/oxide-darwin-arm64@4.2.2
+2026-03-31T07:40:23.371662Z	npm error Invalid: lock file's @tailwindcss/oxide-darwin-x64@4.1.12 does not satisfy @tailwindcss/oxide-darwin-x64@4.2.2
+2026-03-31T07:40:23.371743Z	npm error Invalid: lock file's @tailwindcss/oxide-freebsd-x64@4.1.12 does not satisfy @tailwindcss/oxide-freebsd-x64@4.2.2
+2026-03-31T07:40:23.371787Z	npm error Invalid: lock file's @tailwindcss/oxide-linux-arm-gnueabihf@4.1.12 does not satisfy @tailwindcss/oxide-linux-arm-gnueabihf@4.2.2
+2026-03-31T07:40:23.371823Z	npm error Invalid: lock file's @tailwindcss/oxide-linux-arm64-gnu@4.1.12 does not satisfy @tailwindcss/oxide-linux-arm64-gnu@4.2.2
+2026-03-31T07:40:23.371855Z	npm error Invalid: lock file's @tailwindcss/oxide-linux-arm64-musl@4.1.12 does not satisfy @tailwindcss/oxide-linux-arm64-musl@4.2.2
+2026-03-31T07:40:23.371884Z	npm error Invalid: lock file's @tailwindcss/oxide-linux-x64-gnu@4.1.12 does not satisfy @tailwindcss/oxide-linux-x64-gnu@4.2.2
+2026-03-31T07:40:23.371931Z	npm error Invalid: lock file's @tailwindcss/oxide-linux-x64-musl@4.1.12 does not satisfy @tailwindcss/oxide-linux-x64-musl@4.2.2
+2026-03-31T07:40:23.371962Z	npm error Invalid: lock file's @tailwindcss/oxide-wasm32-wasi@4.1.12 does not satisfy @tailwindcss/oxide-wasm32-wasi@4.2.2
+2026-03-31T07:40:23.37201Z	npm error Invalid: lock file's @tailwindcss/oxide-win32-arm64-msvc@4.1.12 does not satisfy @tailwindcss/oxide-win32-arm64-msvc@4.2.2
+2026-03-31T07:40:23.372079Z	npm error Invalid: lock file's @tailwindcss/oxide-win32-x64-msvc@4.1.12 does not satisfy @tailwindcss/oxide-win32-x64-msvc@4.2.2
+2026-03-31T07:40:23.372137Z	npm error Invalid: lock file's lightningcss-darwin-arm64@1.30.1 does not satisfy lightningcss-darwin-arm64@1.32.0
+2026-03-31T07:40:23.372193Z	npm error Invalid: lock file's lightningcss-darwin-x64@1.30.1 does not satisfy lightningcss-darwin-x64@1.32.0
+2026-03-31T07:40:23.372249Z	npm error Invalid: lock file's lightningcss-freebsd-x64@1.30.1 does not satisfy lightningcss-freebsd-x64@1.32.0
+2026-03-31T07:40:23.372294Z	npm error Invalid: lock file's lightningcss-linux-arm-gnueabihf@1.30.1 does not satisfy lightningcss-linux-arm-gnueabihf@1.32.0
+2026-03-31T07:40:23.372325Z	npm error Invalid: lock file's lightningcss-linux-arm64-gnu@1.30.1 does not satisfy lightningcss-linux-arm64-gnu@1.32.0
+2026-03-31T07:40:23.372355Z	npm error Invalid: lock file's lightningcss-linux-arm64-musl@1.30.1 does not satisfy lightningcss-linux-arm64-musl@1.32.0
+2026-03-31T07:40:23.372395Z	npm error Invalid: lock file's lightningcss-linux-x64-gnu@1.30.1 does not satisfy lightningcss-linux-x64-gnu@1.32.0
+2026-03-31T07:40:23.372447Z	npm error Invalid: lock file's lightningcss-linux-x64-musl@1.30.1 does not satisfy lightningcss-linux-x64-musl@1.32.0
+2026-03-31T07:40:23.372513Z	npm error Invalid: lock file's lightningcss-win32-arm64-msvc@1.30.1 does not satisfy lightningcss-win32-arm64-msvc@1.32.0
+2026-03-31T07:40:23.372576Z	npm error Invalid: lock file's lightningcss-win32-x64-msvc@1.30.1 does not satisfy lightningcss-win32-x64-msvc@1.32.0
+2026-03-31T07:40:23.37263Z	npm error
+2026-03-31T07:40:23.372692Z	npm error Clean install a project
+2026-03-31T07:40:23.372743Z	npm error
+2026-03-31T07:40:23.372799Z	npm error Usage:
+2026-03-31T07:40:23.372859Z	npm error npm ci
+2026-03-31T07:40:23.372909Z	npm error
+2026-03-31T07:40:23.372967Z	npm error Options:
+2026-03-31T07:40:23.373026Z	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-03-31T07:40:23.373121Z	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-03-31T07:40:23.373192Z	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-03-31T07:40:23.37323Z	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-03-31T07:40:23.373259Z	npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-03-31T07:40:23.373299Z	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-03-31T07:40:23.373361Z	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-03-31T07:40:23.373418Z	npm error
+2026-03-31T07:40:23.373472Z	npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-03-31T07:40:23.373528Z	npm error
+2026-03-31T07:40:23.373589Z	npm error Run "npm help ci" for more info
+2026-03-31T07:40:23.373621Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-03-31T07_40_20_324Z-debug-0.log
+2026-03-31T07:40:23.388883Z	Error: Exit with error code: 1
+2026-03-31T07:40:23.389Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-03-31T07:40:23.389051Z	    at Object.onceWrapper (node:events:652:26)
+2026-03-31T07:40:23.389104Z	    at ChildProcess.emit (node:events:537:28)
+2026-03-31T07:40:23.389138Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-03-31T07:40:23.395211Z	Failed: build command exited with code: 1
+2026-03-31T07:40:24.524684Z	Failed: error occurred while running build command

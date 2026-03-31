@@ -1,0 +1,71 @@
+2026-03-31T07:58:17.810398Z	Cloning repository...
+2026-03-31T07:58:18.569947Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-31T07:58:18.570226Z	 * branch            fc445438473d8f57587c6249dcca389bdcd66f36 -> FETCH_HEAD
+2026-03-31T07:58:18.570284Z	
+2026-03-31T07:58:18.594568Z	HEAD is now at fc44543 Fix package.json to match Tailwind CSS 4.2.2 installation
+2026-03-31T07:58:18.594788Z	
+2026-03-31T07:58:18.630683Z	
+2026-03-31T07:58:18.630978Z	Using v2 root directory strategy
+2026-03-31T07:58:18.642399Z	Success: Finished cloning repository files
+2026-03-31T07:58:20.297398Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-31T07:58:20.297757Z	
+2026-03-31T07:58:21.459183Z	No Wrangler configuration file found. Continuing.
+2026-03-31T07:58:21.68321Z	Detected the following tools from environment: nodejs@20.20.0, npm@10.9.2
+2026-03-31T07:58:21.68429Z	Installing nodejs 20.20.0
+2026-03-31T07:58:22.438546Z	Trying to update node-build... ok
+2026-03-31T07:58:22.48759Z	To follow progress, use 'tail -f /tmp/node-build.20260331075822.798.log' or pass --verbose
+2026-03-31T07:58:22.526545Z	Downloading node-v20.20.0-linux-x64.tar.gz...
+2026-03-31T07:58:22.650608Z	-> https://nodejs.org/dist/v20.20.0/node-v20.20.0-linux-x64.tar.gz
+2026-03-31T07:58:24.701543Z	
+2026-03-31T07:58:24.701786Z	WARNING: node-v20.20.0-linux-x64 is in LTS Maintenance mode and nearing its end of life.
+2026-03-31T07:58:24.701845Z	It only receives *critical* security updates, *critical* bug fixes and documentation updates.
+2026-03-31T07:58:24.701879Z	
+2026-03-31T07:58:24.70191Z	Installing node-v20.20.0-linux-x64...
+2026-03-31T07:58:25.190775Z	Installed node-v20.20.0-linux-x64 to /opt/buildhome/.asdf/installs/nodejs/20.20.0
+2026-03-31T07:58:25.191066Z	
+2026-03-31T07:58:25.72501Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-31T07:58:28.540885Z	npm error code EUSAGE
+2026-03-31T07:58:28.541141Z	npm error
+2026-03-31T07:58:28.541199Z	npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-03-31T07:58:28.541241Z	npm error
+2026-03-31T07:58:28.541276Z	npm error Missing: @radix-ui/react-toast@1.2.15 from lock file
+2026-03-31T07:58:28.541304Z	npm error Missing: @types/react@18.3.28 from lock file
+2026-03-31T07:58:28.54133Z	npm error Missing: @types/react-dom@18.3.7 from lock file
+2026-03-31T07:58:28.541356Z	npm error Invalid: lock file's lucide-react@1.7.0 does not satisfy lucide-react@0.487.0
+2026-03-31T07:58:28.541383Z	npm error Missing: react-slick@0.30.3 from lock file
+2026-03-31T07:58:28.54141Z	npm error Missing: slick-carousel@1.8.1 from lock file
+2026-03-31T07:58:28.541452Z	npm error Missing: jquery@4.0.0 from lock file
+2026-03-31T07:58:28.541479Z	npm error Missing: tailwind-merge@2.6.1 from lock file
+2026-03-31T07:58:28.541505Z	npm error Missing: @types/prop-types@15.7.15 from lock file
+2026-03-31T07:58:28.541531Z	npm error Missing: classnames@2.5.1 from lock file
+2026-03-31T07:58:28.541557Z	npm error Missing: enquire.js@2.1.6 from lock file
+2026-03-31T07:58:28.541584Z	npm error Missing: json2mq@0.2.0 from lock file
+2026-03-31T07:58:28.54162Z	npm error Missing: lodash.debounce@4.0.8 from lock file
+2026-03-31T07:58:28.541648Z	npm error Missing: resize-observer-polyfill@1.5.1 from lock file
+2026-03-31T07:58:28.541674Z	npm error Missing: string-convert@0.2.1 from lock file
+2026-03-31T07:58:28.541701Z	npm error
+2026-03-31T07:58:28.541727Z	npm error Clean install a project
+2026-03-31T07:58:28.541759Z	npm error
+2026-03-31T07:58:28.541796Z	npm error Usage:
+2026-03-31T07:58:28.541844Z	npm error npm ci
+2026-03-31T07:58:28.541879Z	npm error
+2026-03-31T07:58:28.541905Z	npm error Options:
+2026-03-31T07:58:28.541931Z	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-03-31T07:58:28.541957Z	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-03-31T07:58:28.541983Z	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-03-31T07:58:28.54201Z	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-03-31T07:58:28.542038Z	npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-03-31T07:58:28.542075Z	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-03-31T07:58:28.542125Z	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-03-31T07:58:28.542184Z	npm error
+2026-03-31T07:58:28.542219Z	npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-03-31T07:58:28.542252Z	npm error
+2026-03-31T07:58:28.542282Z	npm error Run "npm help ci" for more info
+2026-03-31T07:58:28.542313Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-03-31T07_58_25_899Z-debug-0.log
+2026-03-31T07:58:28.554828Z	Error: Exit with error code: 1
+2026-03-31T07:58:28.554945Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-03-31T07:58:28.554996Z	    at Object.onceWrapper (node:events:652:26)
+2026-03-31T07:58:28.555087Z	    at ChildProcess.emit (node:events:537:28)
+2026-03-31T07:58:28.555139Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-03-31T07:58:28.560895Z	Failed: build command exited with code: 1
+2026-03-31T07:58:30.524546Z	Failed: error occurred while running build command
