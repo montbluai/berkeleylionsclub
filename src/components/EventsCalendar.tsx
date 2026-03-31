@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Calendar as CalendarIcon, Check } from 'lucide-react';
 
 interface EventsCalendarProps {
@@ -17,6 +17,31 @@ export function EventsCalendar({ calendars, title, description, showToggle = tru
   const [visibleCalendars, setVisibleCalendars] = useState<string[]>(
     calendars.map(c => c.id)
   );
+  const [iframeError, setIframeError] = useState(false);
+  const [calendarLoaded, setCalendarLoaded] = useState(false);
+  const [shouldLoadIframe, setShouldLoadIframe] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer to load calendar only when visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoadIframe(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const toggleCalendar = (id: string) => {
     setVisibleCalendars(prev =>
@@ -101,18 +126,31 @@ export function EventsCalendar({ calendars, title, description, showToggle = tru
           )}
 
           {/* Calendar Embed */}
-          <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-            {calendarUrl ? (
+          <div className="bg-white rounded-lg shadow-xl overflow-hidden" ref={containerRef}>
+            {shouldLoadIframe && calendarUrl ? (
               <iframe
                 src={calendarUrl}
                 className="w-full h-[600px] border-0"
                 title="Berkeley Lions Club Events Calendar"
                 tabIndex={0}
+                loading="lazy"
                 aria-label="Interactive calendar showing Berkeley Lions Club events. Use tab key to navigate through calendar controls."
+                onError={() => setIframeError(true)}
+                onLoad={() => setCalendarLoaded(true)}
               />
             ) : (
               <div className="h-[600px] flex items-center justify-center text-gray-500">
                 <p>Select at least one calendar to view events</p>
+              </div>
+            )}
+            {iframeError && (
+              <div className="h-[600px] flex items-center justify-center text-gray-500">
+                <p>Failed to load the calendar. Please try again later.</p>
+              </div>
+            )}
+            {!calendarLoaded && !iframeError && (
+              <div className="h-[600px] flex items-center justify-center text-gray-500">
+                <p>Loading calendar...</p>
               </div>
             )}
           </div>

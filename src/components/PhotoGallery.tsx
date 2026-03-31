@@ -74,7 +74,19 @@ export function PhotoGallery() {
   const lastFocusedPhotoIndex = useRef<number | null>(null);
 
   useEffect(() => {
-    fetchGalleryFromGHL();
+    // Load from localStorage if available
+    const stored = localStorage.getItem('gallery_photos');
+    if (stored) {
+      try {
+        const photos = JSON.parse(stored);
+        if (photos.length > 0) {
+          setGalleryImages(photos);
+        }
+      } catch (e) {
+        console.error('Error loading gallery from localStorage:', e);
+      }
+    }
+    setLoading(false);
   }, []);
 
   // Handle escape key to close modal

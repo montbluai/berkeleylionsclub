@@ -1,51 +1,69 @@
-import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Users, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, Users } from 'lucide-react';
 import { EventsCalendar } from './EventsCalendar';
-import { supabase, FeaturedEvent, isSupabaseConfigured } from '../lib/supabase';
 import { Button } from './ui/button';
+import { useState, useEffect } from 'react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
-const crabFeedPoster = 'https://i.imgur.com/bq8P4wS.png';
+interface FeaturedEvent {
+  posterUrl: string;
+  eventName: string;
+  description: string;
+  date: string;
+  time: string;
+  locationName: string;
+  address: string;
+  volunteersNeeded: string;
+  ageRequirement: string;
+  volunteerTasks: string[];
+  isFree: boolean;
+  ticketPrice?: string;
+  squarePaymentLink?: string;
+  togoAvailable: boolean;
+  additionalInfo?: string;
+}
 
 export function Volunteer() {
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [useHardcodedEvent, setUseHardcodedEvent] = useState(!isSupabaseConfigured);
 
   useEffect(() => {
-    if (isSupabaseConfigured) {
-      loadFeaturedEvent();
-    } else {
-      // Supabase not configured, show hardcoded event
-      setUseHardcodedEvent(true);
-      setLoading(false);
-    }
+    const loadFeaturedEvent = () => {
+      try {
+        const stored = localStorage.getItem('featured_event_queue');
+        if (stored) {
+          const eventQueue = JSON.parse(stored);
+          
+          // Find the next upcoming event
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          
+          const upcomingEvent = eventQueue.find((event: any) => {
+            const eventDate = new Date(event.date);
+            eventDate.setHours(0, 0, 0, 0);
+            return eventDate >= today;
+          });
+          
+          if (upcomingEvent) {
+            setFeaturedEvent(upcomingEvent);
+          } else {
+            setFeaturedEvent(null);
+          }
+        } else {
+          setFeaturedEvent(null);
+        }
+      } catch (error) {
+        console.error('Error loading featured event:', error);
+        setFeaturedEvent(null);
+      }
+    };
+
+    loadFeaturedEvent();
   }, []);
 
-  const loadFeaturedEvent = async () => {
-    setLoading(true);
-    try {
-      const today = new Date().toISOString().split('T')[0];
-      
-      const { data, error } = await supabase
-        .from('featured_events')
-        .select('*')
-        .gte('event_date', today)
-        .order('event_date', { ascending: true })
-        .limit(1)
-        .single();
-
-      if (error && error.code !== 'PGRST116') {
-        // PGRST116 means no rows returned, which is fine
-        throw error;
-      }
-
-      setFeaturedEvent(data);
-    } catch (error) {
-      console.error('Error loading featured event:', error);
-      setFeaturedEvent(null);
-    } finally {
-      setLoading(false);
-    }
+  const getEventBadge = (dateString: string) => {
+    const date = new Date(dateString);
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    return `Featured Event - ${month} ${year}`;
   };
 
   const formatEventDate = (dateString: string) => {
@@ -53,16 +71,9 @@ export function Volunteer() {
     return date.toLocaleDateString('en-US', { 
       weekday: 'long', 
       year: 'numeric', 
-      month: 'short', 
+      month: 'long', 
       day: 'numeric' 
     });
-  };
-
-  const getEventBadge = (dateString: string) => {
-    const date = new Date(dateString);
-    const month = date.toLocaleDateString('en-US', { month: 'long' });
-    const year = date.getFullYear();
-    return `Featured Event - ${month} ${year}`;
   };
 
   const scrollToCalendar = () => {
@@ -85,210 +96,155 @@ export function Volunteer() {
           </p>
         </div>
 
-        {/* Featured Event Section */}
-        {loading ? (
-          <div className="max-w-4xl mx-auto mb-16 text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading featured event...</p>
-          </div>
-        ) : useHardcodedEvent ? (
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#1740a5' }}>
-              {/* Event Poster Image */}
-              <div className="relative p-8 md:p-12 flex justify-center">
-                <img 
-                  src={crabFeedPoster} 
-                  alt="Crab Feed poster"
-                  className="w-3/4 h-auto rounded-lg shadow-lg"
+        {/* Featured Event Card */}
+        {featuredEvent && (
+          <div className="max-w-lg mx-auto mb-16">
+            <div 
+              className="rounded-2xl shadow-2xl overflow-hidden"
+              style={{ backgroundColor: '#2563EB' }}
+            >
+              {/* Event Poster */}
+              <div className="p-6 pb-4">
+                <ImageWithFallback
+                  src={featuredEvent.posterUrl}
+                  alt={`${featuredEvent.eventName} poster`}
+                  className="w-full rounded-lg shadow-lg"
                 />
               </div>
 
-              {/* Event Details */}
-              <div className="p-8 md:p-12 text-white">
-                <div className="text-center mb-8">
-                  <div className="inline-block px-4 py-2 rounded-full mb-4" style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}>
-                    {getEventBadge('2023-10-21')}
-                  </div>
-                  <h2 className="text-3xl md:text-4xl mb-4">
-                    Berkeley Lions Club Crab Feed
-                  </h2>
-                  <p className="text-xl text-white/90">
-                    Join us for a delicious crab feed to support our community!
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="flex items-start gap-3">
-                    <Calendar className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
-                    <div>
-                      <div style={{ color: '#f2ca47' }}>When</div>
-                      <div>{formatEventDate('2023-10-21')}</div>
-                      <div>6:00 PM - 8:00 PM</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
-                    <div>
-                      <div style={{ color: '#f2ca47' }}>Where</div>
-                      <div>UC Berkeley Faculty Club</div>
-                      <div>201 McLaughlin Hall, Berkeley, CA 94720</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Users className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
-                    <div>
-                      <div style={{ color: '#f2ca47' }}>Volunteers Needed</div>
-                      <div>10</div>
-                      <div>No age restrictions</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-xl mb-3" style={{ color: '#f2ca47' }}>What You'll Do:</h3>
-                  <ul className="space-y-2">
-                    <li>• Help set up tables and chairs</li>
-                    <li>• Serve food and drinks</li>
-                    <li>• Assist with cleanup</li>
-                  </ul>
-                </div>
-
-                <div className="text-center">
-                  <p className="mb-4">
-                    <span style={{ color: '#f2ca47' }}>
-                      Tickets: $20
-                    </span>
-                    {true && ' • To-go orders available'}
-                  </p>
-                  {true && (
-                    <p className="mb-4">
-                      <span style={{ color: '#f2ca47' }}>Join us for a fun evening of food and community!</span>
-                    </p>
-                  )}
-                  {true && (
-                    <div className="mt-6">
-                      <Button
-                        onClick={() => window.open('https://square.link/u/5Gz6Q5Q5', '_blank')}
-                        className="text-white px-8 py-4 text-lg"
-                        style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}
-                      >
-                        Purchase Tickets
-                        <ExternalLink className="ml-2" size={20} />
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : featuredEvent ? (
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#1740a5' }}>
-              {/* Event Poster Image */}
-              <div className="relative p-8 md:p-12 flex justify-center">
-                <img 
-                  src={featuredEvent.image_url} 
-                  alt={`${featuredEvent.event_name} poster`}
-                  className="w-3/4 h-auto rounded-lg shadow-lg"
-                />
+              {/* Event Badge - Yellow Pill */}
+              <div className="px-6 pb-6 text-center">
+                <span 
+                  className="inline-block px-6 py-2 rounded-full text-sm font-bold"
+                  style={{ backgroundColor: '#EBB700', color: '#1E40AF' }}
+                >
+                  {getEventBadge(featuredEvent.date)}
+                </span>
               </div>
 
-              {/* Event Details */}
-              <div className="p-8 md:p-12 text-white">
-                <div className="text-center mb-8">
-                  <div className="inline-block px-4 py-2 rounded-full mb-4" style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}>
-                    {getEventBadge(featuredEvent.event_date)}
-                  </div>
-                  <h2 className="text-3xl md:text-4xl mb-4">
-                    {featuredEvent.event_name}
-                  </h2>
-                  <p className="text-xl text-white/90">
-                    {featuredEvent.event_description}
-                  </p>
-                </div>
+              {/* Event Title */}
+              <div className="px-8 pb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white text-center leading-tight">
+                  {featuredEvent.eventName}
+                </h2>
+              </div>
 
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* Event Description */}
+              <div className="px-8 pb-8">
+                <p className="text-white text-center text-base leading-relaxed">
+                  {featuredEvent.description}
+                </p>
+              </div>
+
+              {/* Event Details Grid - No Panel Background */}
+              <div className="px-8 pb-8">
+                <div className="grid md:grid-cols-3 gap-6">
+                  {/* When */}
                   <div className="flex items-start gap-3">
-                    <Calendar className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
+                    <Calendar className="w-6 h-6 flex-shrink-0 mt-1" style={{ color: '#EBB700' }} />
                     <div>
-                      <div style={{ color: '#f2ca47' }}>When</div>
-                      <div>{formatEventDate(featuredEvent.event_date)}</div>
-                      <div>{featuredEvent.event_time}</div>
+                      <div className="text-sm font-bold mb-1" style={{ color: '#EBB700' }}>
+                        When
+                      </div>
+                      <div className="text-white text-sm font-medium">
+                        {formatEventDate(featuredEvent.date)}
+                      </div>
+                      <div className="text-white text-sm mt-0.5">
+                        {featuredEvent.time}
+                      </div>
                     </div>
                   </div>
+
+                  {/* Where */}
                   <div className="flex items-start gap-3">
-                    <MapPin className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
+                    <MapPin className="w-6 h-6 flex-shrink-0 mt-1" style={{ color: '#EBB700' }} />
                     <div>
-                      <div style={{ color: '#f2ca47' }}>Where</div>
-                      <div>{featuredEvent.location_name}</div>
-                      <div>{featuredEvent.location_address}</div>
+                      <div className="text-sm font-bold mb-1" style={{ color: '#EBB700' }}>
+                        Where
+                      </div>
+                      <div className="text-white text-sm font-medium">
+                        {featuredEvent.locationName}
+                      </div>
+                      <div className="text-white text-sm mt-0.5">
+                        {featuredEvent.address}
+                      </div>
                     </div>
                   </div>
+
+                  {/* Volunteers Needed */}
                   <div className="flex items-start gap-3">
-                    <Users className="flex-shrink-0 mt-1" size={24} style={{ color: '#f2ca47' }} />
+                    <Users className="w-6 h-6 flex-shrink-0 mt-1" style={{ color: '#EBB700' }} />
                     <div>
-                      <div style={{ color: '#f2ca47' }}>Volunteers Needed</div>
-                      <div>{featuredEvent.volunteers_needed}</div>
-                      <div>{featuredEvent.age_requirements}</div>
+                      <div className="text-sm font-bold mb-1" style={{ color: '#EBB700' }}>
+                        Volunteers Needed
+                      </div>
+                      <div className="text-white text-sm font-medium">
+                        {featuredEvent.volunteersNeeded}
+                      </div>
+                      <div className="text-white text-sm mt-0.5">
+                        {featuredEvent.ageRequirement}
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-xl mb-3" style={{ color: '#f2ca47' }}>What You'll Do:</h3>
-                  <ul className="space-y-2">
-                    {featuredEvent.volunteer_tasks.map((task, index) => (
-                      <li key={index}>• {task}</li>
+              {/* What You'll Do Section - Darker Blue Panel */}
+              {featuredEvent.volunteerTasks.length > 0 && (
+                <div className="mx-8 mb-8 rounded-xl p-6" style={{ backgroundColor: 'rgba(30, 64, 175, 0.6)' }}>
+                  <h3 
+                    className="text-lg font-bold mb-4"
+                    style={{ color: '#EBB700' }}
+                  >
+                    What You'll Do:
+                  </h3>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    {featuredEvent.volunteerTasks.map((task, index) => (
+                      <li key={index} className="text-white text-sm flex items-start mb-2">
+                        <span className="mr-2">•</span>
+                        <span>{task}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
+              )}
 
-                <div className="text-center">
-                  <p className="mb-4">
-                    <span style={{ color: '#f2ca47' }}>
-                      {featuredEvent.is_free ? 'Free Event' : `Tickets: ${featuredEvent.ticket_price}`}
+              {/* Ticket Information - No Panel Background */}
+              <div className="px-8 pb-2 text-center">
+                <div className="text-sm mb-0 text-white">
+                  {featuredEvent.isFree ? (
+                    <span className="font-bold" style={{ color: '#EBB700' }}>
+                      FREE Event
                     </span>
-                    {featuredEvent.to_go_available && ' • To-go orders available'}
-                  </p>
-                  {featuredEvent.additional_info && (
-                    <p className="mb-4">
-                      <span style={{ color: '#f2ca47' }}>{featuredEvent.additional_info}</span>
-                    </p>
-                  )}
-                  {featuredEvent.square_payment_link && !featuredEvent.is_free && (
-                    <div className="mt-6">
-                      <Button
-                        onClick={() => window.open(featuredEvent.square_payment_link!, '_blank')}
-                        className="text-white px-8 py-4 text-lg"
-                        style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}
-                      >
-                        Purchase Tickets
-                        <ExternalLink className="ml-2" size={20} />
-                      </Button>
-                    </div>
+                  ) : (
+                    <span>
+                      <span style={{ color: '#EBB700' }}>Tickets: </span>
+                      <span className="font-bold" style={{ color: '#EBB700' }}>{featuredEvent.ticketPrice}</span>
+                      {featuredEvent.togoAvailable && <span> • To-go orders available</span>}
+                    </span>
                   )}
                 </div>
+                {featuredEvent.squarePaymentLink && (
+                  <a
+                    href={featuredEvent.squarePaymentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-3 rounded-lg font-bold text-sm transition-all hover:opacity-90 shadow-lg mt-4"
+                    style={{ backgroundColor: '#EBB700', color: '#1E40AF' }}
+                  >
+                    Purchase Tickets
+                  </a>
+                )}
               </div>
-            </div>
-          </div>
-        ) : (
-          // No Upcoming Events - Show Calendar Link
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg shadow-lg p-12 text-center">
-              <Calendar size={64} className="mx-auto mb-6" style={{ color: '#1740a5' }} />
-              <h2 className="text-3xl mb-4" style={{ color: '#1740a5' }}>
-                No Featured Events Right Now
-              </h2>
-              <p className="text-xl text-gray-700 mb-6">
-                Check our volunteer events calendar below for upcoming opportunities!
-              </p>
-              <Button
-                onClick={scrollToCalendar}
-                className="text-white px-8 py-4 text-lg"
-                style={{ backgroundColor: '#1740a5' }}
-              >
-                View Calendar
-              </Button>
+
+              {/* Additional Info - No Panel Background */}
+              {featuredEvent.additionalInfo && (
+                <div className="px-8 pb-8 pt-2 text-center">
+                  <p className="text-sm text-white">
+                    {featuredEvent.additionalInfo}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}

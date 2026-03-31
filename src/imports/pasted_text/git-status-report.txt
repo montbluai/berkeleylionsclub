@@ -1,0 +1,375 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .DS_Store
+	modified:   node_modules/.DS_Store
+	modified:   node_modules/.package-lock.json
+	deleted:    node_modules/@rolldown/pluginutils/README.md
+	deleted:    node_modules/@rolldown/pluginutils/dist/composable-filters.d.ts
+	deleted:    node_modules/@rolldown/pluginutils/dist/composable-filters.js
+	deleted:    node_modules/@rolldown/pluginutils/dist/filter-vite-plugins.d.ts
+	deleted:    node_modules/@rolldown/pluginutils/dist/filter-vite-plugins.js
+	modified:   node_modules/@rolldown/pluginutils/dist/index.d.ts
+	modified:   node_modules/@rolldown/pluginutils/dist/index.js
+	deleted:    node_modules/@rolldown/pluginutils/dist/simple-filters.d.ts
+	deleted:    node_modules/@rolldown/pluginutils/dist/simple-filters.js
+	deleted:    node_modules/@rolldown/pluginutils/dist/utils.d.ts
+	deleted:    node_modules/@rolldown/pluginutils/dist/utils.js
+	modified:   node_modules/@rolldown/pluginutils/package.json
+	deleted:    node_modules/@swc/core-darwin-x64/README.md
+	deleted:    node_modules/@swc/core-darwin-x64/package.json
+	deleted:    node_modules/@swc/core-darwin-x64/swc.darwin-x64.node
+	deleted:    node_modules/@swc/core/README.md
+	deleted:    node_modules/@swc/core/Visitor.d.ts
+	deleted:    node_modules/@swc/core/Visitor.js
+	deleted:    node_modules/@swc/core/binding.d.ts
+	deleted:    node_modules/@swc/core/binding.js
+	deleted:    node_modules/@swc/core/index.d.ts
+	deleted:    node_modules/@swc/core/index.js
+	deleted:    node_modules/@swc/core/package.json
+	deleted:    node_modules/@swc/core/postinstall.js
+	deleted:    node_modules/@swc/core/spack.d.ts
+	deleted:    node_modules/@swc/core/spack.js
+	deleted:    node_modules/@swc/core/util.d.ts
+	deleted:    node_modules/@swc/core/util.js
+	deleted:    node_modules/@swc/counter/CHANGELOG.md
+	deleted:    node_modules/@swc/counter/README.md
+	deleted:    node_modules/@swc/counter/index.js
+	deleted:    node_modules/@swc/counter/package.json
+	deleted:    node_modules/@swc/types/LICENSE
+	deleted:    node_modules/@swc/types/README.md
+	deleted:    node_modules/@swc/types/assumptions.d.ts
+	deleted:    node_modules/@swc/types/assumptions.js
+	deleted:    node_modules/@swc/types/index.d.ts
+	deleted:    node_modules/@swc/types/index.js
+	deleted:    node_modules/@swc/types/package.json
+	deleted:    node_modules/@vitejs/plugin-react-swc/LICENSE
+	deleted:    node_modules/@vitejs/plugin-react-swc/README.md
+	deleted:    node_modules/@vitejs/plugin-react-swc/index.cjs
+	deleted:    node_modules/@vitejs/plugin-react-swc/index.d.cts
+	deleted:    node_modules/@vitejs/plugin-react-swc/index.d.ts
+	deleted:    node_modules/@vitejs/plugin-react-swc/index.js
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/LICENSE
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/dist/index.cjs
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/dist/index.d.cts
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/dist/index.d.ts
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/dist/index.js
+	deleted:    node_modules/@vitejs/plugin-react-swc/node_modules/@rolldown/pluginutils/package.json
+	deleted:    node_modules/@vitejs/plugin-react-swc/package.json
+	deleted:    node_modules/@vitejs/plugin-react-swc/refresh-runtime.js
+	modified:   node_modules/@vitejs/plugin-react/README.md
+	modified:   node_modules/@vitejs/plugin-react/dist/index.d.ts
+	modified:   node_modules/@vitejs/plugin-react/dist/index.js
+	modified:   node_modules/@vitejs/plugin-react/dist/refresh-runtime.js
+	modified:   node_modules/@vitejs/plugin-react/package.json
+	deleted:    node_modules/@vitejs/plugin-react/types/preamble.d.ts
+	deleted:    node_modules/classnames/HISTORY.md
+	deleted:    node_modules/classnames/LICENSE
+	deleted:    node_modules/classnames/README.md
+	deleted:    node_modules/classnames/bind.d.ts
+	deleted:    node_modules/classnames/bind.js
+	deleted:    node_modules/classnames/dedupe.d.ts
+	deleted:    node_modules/classnames/dedupe.js
+	deleted:    node_modules/classnames/index.d.ts
+	deleted:    node_modules/classnames/index.js
+	deleted:    node_modules/classnames/package.json
+	modified:   node_modules/date-fns/.DS_Store
+	deleted:    node_modules/enquire.js/LICENSE
+	deleted:    node_modules/enquire.js/dist/enquire.js
+	deleted:    node_modules/enquire.js/dist/enquire.min.js
+	deleted:    node_modules/enquire.js/package.json
+	deleted:    node_modules/enquire.js/readme.md
+	deleted:    node_modules/enquire.js/src/MediaQuery.js
+	deleted:    node_modules/enquire.js/src/MediaQueryDispatch.js
+	deleted:    node_modules/enquire.js/src/QueryHandler.js
+	deleted:    node_modules/enquire.js/src/Util.js
+	deleted:    node_modules/enquire.js/src/index.js
+	deleted:    node_modules/jquery/AUTHORS.txt
+	deleted:    node_modules/jquery/LICENSE.txt
+	deleted:    node_modules/jquery/README.md
+	deleted:    node_modules/jquery/bower.json
+	deleted:    node_modules/jquery/changelog.md
+	deleted:    node_modules/jquery/dist-module/jquery.factory.module.js
+	deleted:    node_modules/jquery/dist-module/jquery.factory.slim.module.js
+	deleted:    node_modules/jquery/dist-module/jquery.module.js
+	deleted:    node_modules/jquery/dist-module/jquery.module.min.js
+	deleted:    node_modules/jquery/dist-module/jquery.module.min.map
+	deleted:    node_modules/jquery/dist-module/jquery.slim.module.js
+	deleted:    node_modules/jquery/dist-module/jquery.slim.module.min.js
+	deleted:    node_modules/jquery/dist-module/jquery.slim.module.min.map
+	deleted:    node_modules/jquery/dist-module/package.json
+	deleted:    node_modules/jquery/dist-module/wrappers/jquery.node-module-wrapper.js
+	deleted:    node_modules/jquery/dist-module/wrappers/jquery.node-module-wrapper.slim.js
+	deleted:    node_modules/jquery/dist/jquery.factory.js
+	deleted:    node_modules/jquery/dist/jquery.factory.slim.js
+	deleted:    node_modules/jquery/dist/jquery.js
+	deleted:    node_modules/jquery/dist/jquery.min.js
+	deleted:    node_modules/jquery/dist/jquery.min.map
+	deleted:    node_modules/jquery/dist/jquery.slim.js
+	deleted:    node_modules/jquery/dist/jquery.slim.min.js
+	deleted:    node_modules/jquery/dist/jquery.slim.min.map
+	deleted:    node_modules/jquery/dist/package.json
+	deleted:    node_modules/jquery/dist/wrappers/jquery.bundler-require-wrapper.js
+	deleted:    node_modules/jquery/dist/wrappers/jquery.bundler-require-wrapper.slim.js
+	deleted:    node_modules/jquery/package.json
+	deleted:    node_modules/jquery/src/ajax.js
+	deleted:    node_modules/jquery/src/ajax/binary.js
+	deleted:    node_modules/jquery/src/ajax/jsonp.js
+	deleted:    node_modules/jquery/src/ajax/load.js
+	deleted:    node_modules/jquery/src/ajax/script.js
+	deleted:    node_modules/jquery/src/ajax/var/location.js
+	deleted:    node_modules/jquery/src/ajax/var/nonce.js
+	deleted:    node_modules/jquery/src/ajax/var/rquery.js
+	deleted:    node_modules/jquery/src/ajax/xhr.js
+	deleted:    node_modules/jquery/src/attributes.js
+	deleted:    node_modules/jquery/src/attributes/attr.js
+	deleted:    node_modules/jquery/src/attributes/classes.js
+	deleted:    node_modules/jquery/src/attributes/prop.js
+	deleted:    node_modules/jquery/src/attributes/val.js
+	deleted:    node_modules/jquery/src/callbacks.js
+	deleted:    node_modules/jquery/src/core.js
+	deleted:    node_modules/jquery/src/core/DOMEval.js
+	deleted:    node_modules/jquery/src/core/access.js
+	deleted:    node_modules/jquery/src/core/camelCase.js
+	deleted:    node_modules/jquery/src/core/init.js
+	deleted:    node_modules/jquery/src/core/isArrayLike.js
+	deleted:    node_modules/jquery/src/core/isAttached.js
+	deleted:    node_modules/jquery/src/core/isObviousHtml.js
+	deleted:    node_modules/jquery/src/core/nodeName.js
+	deleted:    node_modules/jquery/src/core/parseHTML.js
+	deleted:    node_modules/jquery/src/core/parseXML.js
+	deleted:    node_modules/jquery/src/core/ready-no-deferred.js
+	deleted:    node_modules/jquery/src/core/ready.js
+	deleted:    node_modules/jquery/src/core/readyException.js
+	deleted:    node_modules/jquery/src/core/stripAndCollapse.js
+	deleted:    node_modules/jquery/src/core/toType.js
+	deleted:    node_modules/jquery/src/core/var/rsingleTag.js
+	deleted:    node_modules/jquery/src/css.js
+	deleted:    node_modules/jquery/src/css/adjustCSS.js
+	deleted:    node_modules/jquery/src/css/cssCamelCase.js
+	deleted:    node_modules/jquery/src/css/curCSS.js
+	deleted:    node_modules/jquery/src/css/finalPropName.js
+	deleted:    node_modules/jquery/src/css/hiddenVisibleSelectors.js
+	deleted:    node_modules/jquery/src/css/isAutoPx.js
+	deleted:    node_modules/jquery/src/css/showHide.js
+	deleted:    node_modules/jquery/src/css/support.js
+	deleted:    node_modules/jquery/src/css/var/cssExpand.js
+	deleted:    node_modules/jquery/src/css/var/getStyles.js
+	deleted:    node_modules/jquery/src/css/var/isHiddenWithinTree.js
+	deleted:    node_modules/jquery/src/css/var/rcustomProp.js
+	deleted:    node_modules/jquery/src/css/var/rnumnonpx.js
+	deleted:    node_modules/jquery/src/css/var/swap.js
+	deleted:    node_modules/jquery/src/data.js
+	deleted:    node_modules/jquery/src/data/Data.js
+	deleted:    node_modules/jquery/src/data/var/acceptData.js
+	deleted:    node_modules/jquery/src/data/var/dataPriv.js
+	deleted:    node_modules/jquery/src/data/var/dataUser.js
+	deleted:    node_modules/jquery/src/deferred.js
+	deleted:    node_modules/jquery/src/deferred/exceptionHook.js
+	deleted:    node_modules/jquery/src/deprecated.js
+	deleted:    node_modules/jquery/src/deprecated/ajax-event-alias.js
+	deleted:    node_modules/jquery/src/deprecated/event.js
+	deleted:    node_modules/jquery/src/dimensions.js
+	deleted:    node_modules/jquery/src/effects.js
+	deleted:    node_modules/jquery/src/effects/Tween.js
+	deleted:    node_modules/jquery/src/effects/animatedSelector.js
+	deleted:    node_modules/jquery/src/event.js
+	deleted:    node_modules/jquery/src/event/trigger.js
+	deleted:    node_modules/jquery/src/exports/amd.js
+	deleted:    node_modules/jquery/src/exports/global.js
+	deleted:    node_modules/jquery/src/jquery.js
+	deleted:    node_modules/jquery/src/manipulation.js
+	deleted:    node_modules/jquery/src/manipulation/_evalUrl.js
+	deleted:    node_modules/jquery/src/manipulation/buildFragment.js
+	deleted:    node_modules/jquery/src/manipulation/domManip.js
+	deleted:    node_modules/jquery/src/manipulation/getAll.js
+	deleted:    node_modules/jquery/src/manipulation/setGlobalEval.js
+	deleted:    node_modules/jquery/src/manipulation/var/rscriptType.js
+	deleted:    node_modules/jquery/src/manipulation/var/rtagName.js
+	deleted:    node_modules/jquery/src/manipulation/wrapMap.js
+	deleted:    node_modules/jquery/src/offset.js
+	deleted:    node_modules/jquery/src/queue.js
+	deleted:    node_modules/jquery/src/queue/delay.js
+	deleted:    node_modules/jquery/src/selector-native.js
+	deleted:    node_modules/jquery/src/selector.js
+	deleted:    node_modules/jquery/src/selector/createCache.js
+	deleted:    node_modules/jquery/src/selector/escapeSelector.js
+	deleted:    node_modules/jquery/src/selector/filterMatchExpr.js
+	deleted:    node_modules/jquery/src/selector/preFilter.js
+	deleted:    node_modules/jquery/src/selector/rbuggyQSA.js
+	deleted:    node_modules/jquery/src/selector/selectorError.js
+	deleted:    node_modules/jquery/src/selector/testContext.js
+	deleted:    node_modules/jquery/src/selector/toSelector.js
+	deleted:    node_modules/jquery/src/selector/tokenize.js
+	deleted:    node_modules/jquery/src/selector/unescapeSelector.js
+	deleted:    node_modules/jquery/src/selector/uniqueSort.js
+	deleted:    node_modules/jquery/src/selector/var/attributes.js
+	deleted:    node_modules/jquery/src/selector/var/identifier.js
+	deleted:    node_modules/jquery/src/selector/var/matches.js
+	deleted:    node_modules/jquery/src/selector/var/pseudos.js
+	deleted:    node_modules/jquery/src/selector/var/rcomma.js
+	deleted:    node_modules/jquery/src/selector/var/rdescend.js
+	deleted:    node_modules/jquery/src/selector/var/rleadingCombinator.js
+	deleted:    node_modules/jquery/src/selector/var/rpseudo.js
+	deleted:    node_modules/jquery/src/selector/var/rsibling.js
+	deleted:    node_modules/jquery/src/serialize.js
+	deleted:    node_modules/jquery/src/traversing.js
+	deleted:    node_modules/jquery/src/traversing/findFilter.js
+	deleted:    node_modules/jquery/src/traversing/var/dir.js
+	deleted:    node_modules/jquery/src/traversing/var/rneedsContext.js
+	deleted:    node_modules/jquery/src/traversing/var/siblings.js
+	deleted:    node_modules/jquery/src/var/ObjectFunctionString.js
+	deleted:    node_modules/jquery/src/var/arr.js
+	deleted:    node_modules/jquery/src/var/class2type.js
+	deleted:    node_modules/jquery/src/var/document.js
+	deleted:    node_modules/jquery/src/var/documentElement.js
+	deleted:    node_modules/jquery/src/var/flat.js
+	deleted:    node_modules/jquery/src/var/fnToString.js
+	deleted:    node_modules/jquery/src/var/getProto.js
+	deleted:    node_modules/jquery/src/var/hasOwn.js
+	deleted:    node_modules/jquery/src/var/indexOf.js
+	deleted:    node_modules/jquery/src/var/isIE.js
+	deleted:    node_modules/jquery/src/var/isWindow.js
+	deleted:    node_modules/jquery/src/var/pnum.js
+	deleted:    node_modules/jquery/src/var/pop.js
+	deleted:    node_modules/jquery/src/var/push.js
+	deleted:    node_modules/jquery/src/var/rcheckableType.js
+	deleted:    node_modules/jquery/src/var/rcssNum.js
+	deleted:    node_modules/jquery/src/var/rnothtmlwhite.js
+	deleted:    node_modules/jquery/src/var/rtrimCSS.js
+	deleted:    node_modules/jquery/src/var/slice.js
+	deleted:    node_modules/jquery/src/var/sort.js
+	deleted:    node_modules/jquery/src/var/splice.js
+	deleted:    node_modules/jquery/src/var/support.js
+	deleted:    node_modules/jquery/src/var/toString.js
+	deleted:    node_modules/jquery/src/var/whitespace.js
+	deleted:    node_modules/jquery/src/wrap.js
+	deleted:    node_modules/jquery/src/wrapper-esm.js
+	deleted:    node_modules/jquery/src/wrapper-factory-esm.js
+	deleted:    node_modules/jquery/src/wrapper-factory.js
+	deleted:    node_modules/json2mq/.npmignore
+	deleted:    node_modules/json2mq/LICENSE
+	deleted:    node_modules/json2mq/README.md
+	deleted:    node_modules/json2mq/index.js
+	deleted:    node_modules/json2mq/package.json
+	deleted:    node_modules/json2mq/test/test.js
+	deleted:    node_modules/lodash.debounce/LICENSE
+	deleted:    node_modules/lodash.debounce/README.md
+	deleted:    node_modules/lodash.debounce/index.js
+	deleted:    node_modules/lodash.debounce/package.json
+	modified:   node_modules/react-refresh/package.json
+	deleted:    node_modules/react-slick/LICENSE
+	deleted:    node_modules/react-slick/README.md
+	deleted:    node_modules/react-slick/dist/react-slick.js
+	deleted:    node_modules/react-slick/dist/react-slick.js.map
+	deleted:    node_modules/react-slick/dist/react-slick.min.js
+	deleted:    node_modules/react-slick/dist/react-slick.min.js.map
+	deleted:    node_modules/react-slick/lib/arrows.js
+	deleted:    node_modules/react-slick/lib/default-props.js
+	deleted:    node_modules/react-slick/lib/dots.js
+	deleted:    node_modules/react-slick/lib/index.js
+	deleted:    node_modules/react-slick/lib/initial-state.js
+	deleted:    node_modules/react-slick/lib/inner-slider.js
+	deleted:    node_modules/react-slick/lib/slider.js
+	deleted:    node_modules/react-slick/lib/track.js
+	deleted:    node_modules/react-slick/lib/utils/innerSliderUtils.js
+	deleted:    node_modules/react-slick/package.json
+	deleted:    node_modules/resize-observer-polyfill/LICENSE
+	deleted:    node_modules/resize-observer-polyfill/README.md
+	deleted:    node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js
+	deleted:    node_modules/resize-observer-polyfill/dist/ResizeObserver.global.js
+	deleted:    node_modules/resize-observer-polyfill/dist/ResizeObserver.js
+	deleted:    node_modules/resize-observer-polyfill/dist/ResizeObserver.js.flow
+	deleted:    node_modules/resize-observer-polyfill/package.json
+	deleted:    node_modules/resize-observer-polyfill/src/ResizeObservation.js
+	deleted:    node_modules/resize-observer-polyfill/src/ResizeObserver.js
+	deleted:    node_modules/resize-observer-polyfill/src/ResizeObserverController.js
+	deleted:    node_modules/resize-observer-polyfill/src/ResizeObserverEntry.js
+	deleted:    node_modules/resize-observer-polyfill/src/ResizeObserverSPI.js
+	deleted:    node_modules/resize-observer-polyfill/src/index.d.ts
+	deleted:    node_modules/resize-observer-polyfill/src/index.js
+	deleted:    node_modules/resize-observer-polyfill/src/index.js.flow
+	deleted:    node_modules/resize-observer-polyfill/src/shims/es6-collections.js
+	deleted:    node_modules/resize-observer-polyfill/src/shims/global.js
+	deleted:    node_modules/resize-observer-polyfill/src/shims/requestAnimationFrame.js
+	deleted:    node_modules/resize-observer-polyfill/src/utils/defineConfigurable.js
+	deleted:    node_modules/resize-observer-polyfill/src/utils/geometry.js
+	deleted:    node_modules/resize-observer-polyfill/src/utils/getWindowOf.js
+	deleted:    node_modules/resize-observer-polyfill/src/utils/isBrowser.js
+	deleted:    node_modules/resize-observer-polyfill/src/utils/throttle.js
+	deleted:    node_modules/slick-carousel/.npmignore
+	deleted:    node_modules/slick-carousel/CONTRIBUTING.markdown
+	deleted:    node_modules/slick-carousel/ISSUE_TEMPLATE.md
+	deleted:    node_modules/slick-carousel/LICENSE
+	deleted:    node_modules/slick-carousel/Makefile
+	deleted:    node_modules/slick-carousel/README.markdown
+	deleted:    node_modules/slick-carousel/bower.json
+	deleted:    node_modules/slick-carousel/component.json
+	deleted:    node_modules/slick-carousel/index.html
+	deleted:    node_modules/slick-carousel/package.json
+	deleted:    node_modules/slick-carousel/slick.jquery.json
+	deleted:    node_modules/slick-carousel/slick/ajax-loader.gif
+	deleted:    node_modules/slick-carousel/slick/config.rb
+	deleted:    node_modules/slick-carousel/slick/fonts/slick.eot
+	deleted:    node_modules/slick-carousel/slick/fonts/slick.svg
+	deleted:    node_modules/slick-carousel/slick/fonts/slick.ttf
+	deleted:    node_modules/slick-carousel/slick/fonts/slick.woff
+	deleted:    node_modules/slick-carousel/slick/slick-theme.css
+	deleted:    node_modules/slick-carousel/slick/slick-theme.less
+	deleted:    node_modules/slick-carousel/slick/slick-theme.scss
+	deleted:    node_modules/slick-carousel/slick/slick.css
+	deleted:    node_modules/slick-carousel/slick/slick.js
+	deleted:    node_modules/slick-carousel/slick/slick.less
+	deleted:    node_modules/slick-carousel/slick/slick.min.js
+	deleted:    node_modules/slick-carousel/slick/slick.scss
+	deleted:    node_modules/string-convert/.npmignore
+	deleted:    node_modules/string-convert/LICENSE
+	deleted:    node_modules/string-convert/README.md
+	deleted:    node_modules/string-convert/camel2hyphen.js
+	deleted:    node_modules/string-convert/hyphen2camel.js
+	deleted:    node_modules/string-convert/index.js
+	deleted:    node_modules/string-convert/package.json
+	deleted:    node_modules/string-convert/test/test.camel2hyphen.js
+	deleted:    node_modules/string-convert/test/test.hyphen2camel.js
+	deleted:    node_modules/string-convert/test/test.index.js
+	modified:   src/.DS_Store
+	modified:   src/package.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	node_modules/.bin/jiti
+	node_modules/@isaacs/
+	node_modules/@rolldown/pluginutils/dist/index.cjs
+	node_modules/@rolldown/pluginutils/dist/index.d.cts
+	node_modules/@supabase/
+	node_modules/@tailwindcss/
+	node_modules/@types/prop-types/
+	node_modules/@types/react-dom/
+	node_modules/@types/react/
+	node_modules/@types/ws/
+	node_modules/@vitejs/plugin-react/dist/index.cjs
+	node_modules/@vitejs/plugin-react/dist/index.d.cts
+	node_modules/chownr/
+	node_modules/detect-libc/
+	node_modules/enhanced-resolve/
+	node_modules/fsevents/
+	node_modules/graceful-fs/
+	node_modules/iceberg-js/
+	node_modules/jiti/
+	node_modules/lightningcss-darwin-x64/
+	node_modules/lightningcss/
+	node_modules/magic-string/
+	node_modules/minipass/
+	node_modules/minizlib/
+	node_modules/tailwindcss/
+	node_modules/tapable/
+	node_modules/tar/
+	node_modules/tw-animate-css/
+	node_modules/ws/
+	src/imports/pasted_text/npm-install-error.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+amisaunders@Amis-MacBook-Pro berkeleylionsclub % 

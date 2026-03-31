@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Upload, Image as ImageIcon, X, CheckCircle, AlertCircle, Trash2, RefreshCw } from 'lucide-react';
+import { Upload, Image as ImageIcon, X, CheckCircle, AlertCircle, Trash2, RefreshCw, Info } from 'lucide-react';
 
 interface GalleryPhoto {
   id: string;
@@ -25,6 +25,10 @@ export function GalleryManagementContent() {
   const [existingPhotos, setExistingPhotos] = useState<GalleryPhoto[]>([]);
   const [loadingPhotos, setLoadingPhotos] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  // Photo limit constants
+  const MAX_PHOTOS = 40;
+  const RECOMMENDED_PHOTOS = 30;
 
   // GHL Configuration - CHANGE THESE VALUES
   const GHL_API_KEY = 'YOUR_GHL_API_KEY_HERE';
@@ -54,6 +58,12 @@ export function GalleryManagementContent() {
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
+    
+    // Block drop if at maximum capacity
+    if (existingPhotos.length >= MAX_PHOTOS) {
+      return;
+    }
+    
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith('image/')) {
       const fakeEvent = {
@@ -245,6 +255,15 @@ export function GalleryManagementContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Check if at maximum capacity
+    if (existingPhotos.length >= MAX_PHOTOS) {
+      setUploadStatus({
+        type: 'error',
+        message: 'Maximum capacity reached (40 photos). Please delete some photos before adding new ones.',
+      });
+      return;
+    }
+    
     if (!formData.imageFile || !formData.caption) {
       setUploadStatus({
         type: 'error',
@@ -301,6 +320,54 @@ export function GalleryManagementContent() {
         </div>
       )}
 
+      {/* Photo Counter and Limit Warning */}
+      <div className="mb-8">
+        <div className={`p-4 rounded-lg flex items-center gap-3 ${
+          existingPhotos.length >= MAX_PHOTOS 
+            ? 'bg-red-50 border-2 border-red-200' 
+            : existingPhotos.length >= RECOMMENDED_PHOTOS 
+            ? 'bg-blue-50 border-2 border-blue-200' 
+            : 'bg-gray-50 border-2 border-gray-200'
+        }`}>
+          <ImageIcon size={24} className={
+            existingPhotos.length >= MAX_PHOTOS 
+              ? 'text-red-600' 
+              : existingPhotos.length >= RECOMMENDED_PHOTOS 
+              ? 'text-blue-600' 
+              : 'text-gray-600'
+          } />
+          <div className="flex-1">
+            <p className={`font-semibold ${
+              existingPhotos.length >= MAX_PHOTOS 
+                ? 'text-red-800' 
+                : existingPhotos.length >= RECOMMENDED_PHOTOS 
+                ? 'text-blue-800' 
+                : 'text-gray-800'
+            }`}>
+              Gallery Photos: {existingPhotos.length} / {MAX_PHOTOS}
+            </p>
+            {existingPhotos.length >= MAX_PHOTOS && (
+              <p className="text-red-700 text-sm mt-1">
+                Maximum capacity reached. Gallery is getting large. Consider removing older photos for a better visitor experience.
+              </p>
+            )}
+            {existingPhotos.length >= RECOMMENDED_PHOTOS && existingPhotos.length < MAX_PHOTOS && (
+              <p className="text-blue-700 text-sm mt-1">
+                You have {existingPhotos.length} photos - this is ideal! Consider replacing older photos instead of adding more.
+              </p>
+            )}
+          </div>
+        </div>
+        
+        {/* Social Media Note */}
+        <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-start gap-3">
+          <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-blue-800">
+            <strong>Note for Board Members:</strong> This website gallery is designed as a curated showcase for potential members and donors. For sharing all your event photos with current members and the community, continue using the official Berkeley Lions Facebook, Instagram, and other social media - those platforms have unlimited storage!
+          </p>
+        </div>
+      </div>
+
       {/* Upload Form */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
         <h2 className="text-2xl mb-6" style={{ color: '#1740a5' }}>
@@ -316,7 +383,11 @@ export function GalleryManagementContent() {
             <div
               onDrop={handleDrop}
               onDragOver={handleDragOver}
-              className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 transition-colors cursor-pointer"
+              className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+                existingPhotos.length >= MAX_PHOTOS
+                  ? 'border-red-300 bg-red-50 cursor-not-allowed'
+                  : 'border-gray-300 hover:border-blue-500 cursor-pointer'
+              }`}
             >
               <input
                 type="file"
@@ -324,11 +395,15 @@ export function GalleryManagementContent() {
                 onChange={handleImageSelect}
                 className="hidden"
                 id="imageUpload"
+                disabled={existingPhotos.length >= MAX_PHOTOS}
               />
-              <label htmlFor="imageUpload" className="cursor-pointer">
-                <Upload className="mx-auto mb-4 text-gray-400" size={48} />
-                <p className="text-gray-600 mb-2">
-                  Drag and drop your image here, or click to select
+              <label htmlFor={existingPhotos.length >= MAX_PHOTOS ? '' : 'imageUpload'} className={existingPhotos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}>
+                <Upload className={`mx-auto mb-4 ${existingPhotos.length >= MAX_PHOTOS ? 'text-red-400' : 'text-gray-400'}`} size={48} />
+                <p className={existingPhotos.length >= MAX_PHOTOS ? 'text-red-600 mb-2' : 'text-gray-600 mb-2'}>
+                  {existingPhotos.length >= MAX_PHOTOS 
+                    ? 'Upload disabled - Maximum capacity reached' 
+                    : 'Drag and drop your image here, or click to select'
+                  }
                 </p>
                 <p className="text-sm text-gray-500">
                   Maximum file size: 10MB

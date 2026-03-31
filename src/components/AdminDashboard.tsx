@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Calendar, Image as ImageIcon, LogOut } from 'lucide-react';
+import { Calendar, Image as ImageIcon, LogOut, Star, Users } from 'lucide-react';
 import { GalleryManagementContent } from './GalleryManagementContent';
 import { EventManagementContent } from './EventManagementContent';
+import { FeaturedEventForm } from './FeaturedEventForm';
+import { ClubLeadershipContent } from './ClubLeadershipContent';
 import { Button } from './ui/button';
 
-type AdminTab = 'gallery' | 'events';
+type AdminTab = 'gallery' | 'events' | 'featured' | 'leadership';
 
 export function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,7 +47,7 @@ export function AdminDashboard() {
                 Admin Dashboard
               </h1>
               <p className="text-gray-600">
-                Enter password to manage gallery photos and events
+                Enter password to manage gallery, events, and leadership
               </p>
             </div>
 
@@ -130,7 +132,31 @@ export function AdminDashboard() {
               style={activeTab === 'events' ? { borderColor: '#1740a5', color: '#1740a5' } : {}}
             >
               <Calendar size={20} />
-              Featured Events
+              Calendar Events
+            </button>
+            <button
+              onClick={() => setActiveTab('featured')}
+              className={`px-6 py-3 font-semibold transition-all flex items-center gap-2 ${
+                activeTab === 'featured'
+                  ? 'border-b-2 text-blue-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+              style={activeTab === 'featured' ? { borderColor: '#1740a5', color: '#1740a5' } : {}}
+            >
+              <Star size={20} />
+              Featured Event
+            </button>
+            <button
+              onClick={() => setActiveTab('leadership')}
+              className={`px-6 py-3 font-semibold transition-all flex items-center gap-2 ${
+                activeTab === 'leadership'
+                  ? 'border-b-2 text-blue-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+              style={activeTab === 'leadership' ? { borderColor: '#1740a5', color: '#1740a5' } : {}}
+            >
+              <Users size={20} />
+              Club Leadership
             </button>
           </div>
         </div>
@@ -140,8 +166,12 @@ export function AdminDashboard() {
       <div className="py-8">
         {activeTab === 'gallery' ? (
           <AdminGalleryContent />
-        ) : (
+        ) : activeTab === 'events' ? (
           <AdminEventContent />
+        ) : activeTab === 'featured' ? (
+          <AdminFeaturedEventContent />
+        ) : (
+          <AdminLeadershipContent />
         )}
       </div>
     </div>
@@ -155,4 +185,12 @@ function AdminGalleryContent() {
 
 function AdminEventContent() {
   return <EventManagementContent />;
+}
+
+function AdminFeaturedEventContent() {
+  return <FeaturedEventForm />;
+}
+
+function AdminLeadershipContent() {
+  return <ClubLeadershipContent />;
 }

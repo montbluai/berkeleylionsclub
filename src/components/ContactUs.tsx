@@ -1,6 +1,47 @@
 import { Calendar, MapPin, Mail, Users, Video } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+interface LeadershipPosition {
+  id: string;
+  title: string;
+  name: string;
+  isEssential: boolean;
+  order: number;
+}
 
 export function ContactUs() {
+  const [leadershipPositions, setLeadershipPositions] = useState<LeadershipPosition[]>([]);
+
+  // Load leadership positions from localStorage
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('club_leadership');
+      if (stored) {
+        const positions = JSON.parse(stored);
+        setLeadershipPositions(positions);
+      } else {
+        // Default positions if none exist
+        const defaultPositions: LeadershipPosition[] = [
+          { id: '1', title: 'President', name: 'Vivian Freeman', isEssential: true, order: 1 },
+          { id: '2', title: 'Vice President', name: 'Joe Santini', isEssential: true, order: 2 },
+          { id: '3', title: 'Secretary', name: 'Lion Jay Touriel', isEssential: true, order: 3 },
+          { id: '4', title: 'Treasurer', name: 'Mark Fujikawa', isEssential: true, order: 4 },
+          { id: '5', title: 'Membership Chairman', name: 'Vivian Freeman', isEssential: true, order: 5 },
+          { id: '6', title: 'Service Chair', name: 'Karen Roze', isEssential: true, order: 6 },
+          { id: '7', title: 'District 4-C3 District Governor', name: 'Darlene Ridle', isEssential: true, order: 7 },
+        ];
+        setLeadershipPositions(defaultPositions);
+      }
+    } catch (error) {
+      console.error('Error loading leadership positions:', error);
+    }
+  }, []);
+
+  // Split positions into two columns
+  const halfLength = Math.ceil(leadershipPositions.length / 2);
+  const firstColumn = leadershipPositions.slice(0, halfLength);
+  const secondColumn = leadershipPositions.slice(halfLength);
+
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
@@ -108,42 +149,27 @@ export function ContactUs() {
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <div className="pb-4 border-b border-gray-200">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>President</h4>
-                    <p className="text-gray-700">Vivian Freeman</p>
-                  </div>
-
-                  <div className="pb-4 border-b border-gray-200">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>Vice President</h4>
-                    <p className="text-gray-700">Joe Santini</p>
-                  </div>
-
-                  <div className="pb-4 border-b border-gray-200">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>Secretary</h4>
-                    <p className="text-gray-700">Lion Jay Touriel</p>
-                  </div>
-
-                  <div className="pb-4">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>Treasurer</h4>
-                    <p className="text-gray-700">Mark Fujikawa</p>
-                  </div>
+                  {firstColumn.map((position, index) => (
+                    <div 
+                      key={position.id} 
+                      className={index < firstColumn.length - 1 ? 'pb-4 border-b border-gray-200' : 'pb-4'}
+                    >
+                      <h4 className="mb-2" style={{ color: '#1740a5' }}>{position.title}</h4>
+                      <p className="text-gray-700">{position.name}</p>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="space-y-4">
-                  <div className="pb-4 border-b border-gray-200">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>Membership Chairman</h4>
-                    <p className="text-gray-700">Vivian Freeman</p>
-                  </div>
-
-                  <div className="pb-4 border-b border-gray-200">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>Service Chair</h4>
-                    <p className="text-gray-700">Karen Roze</p>
-                  </div>
-
-                  <div className="pb-4">
-                    <h4 className="mb-2" style={{ color: '#1740a5' }}>District 4-C3 District Governor</h4>
-                    <p className="text-gray-700">Darlene Ridle</p>
-                  </div>
+                  {secondColumn.map((position, index) => (
+                    <div 
+                      key={position.id} 
+                      className={index < secondColumn.length - 1 ? 'pb-4 border-b border-gray-200' : 'pb-4'}
+                    >
+                      <h4 className="mb-2" style={{ color: '#1740a5' }}>{position.title}</h4>
+                      <p className="text-gray-700">{position.name}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,0 +1,90 @@
+2026-03-31T00:51:25.580201Z	Cloning repository...
+2026-03-31T00:51:26.175937Z	From https://github.com/montbluai/berkeleylionsclub
+2026-03-31T00:51:26.176321Z	 * branch            eba35ad16f021a26ff9d6bddb94cc519fd5a55e8 -> FETCH_HEAD
+2026-03-31T00:51:26.176432Z	
+2026-03-31T00:51:26.206131Z	HEAD is now at eba35ad Add .gitignore, fix Tailwind dependencies for Cloudflare
+2026-03-31T00:51:26.206615Z	
+2026-03-31T00:51:26.276985Z	
+2026-03-31T00:51:26.277509Z	Using v2 root directory strategy
+2026-03-31T00:51:26.297529Z	Success: Finished cloning repository files
+2026-03-31T00:51:29.000557Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-03-31T00:51:29.00182Z	
+2026-03-31T00:51:30.133107Z	No Wrangler configuration file found. Continuing.
+2026-03-31T00:51:30.447332Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-03-31T00:51:30.447929Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-31T00:51:34.986365Z	npm error code EUSAGE
+2026-03-31T00:51:34.986837Z	npm error
+2026-03-31T00:51:34.987032Z	npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-03-31T00:51:34.987186Z	npm error
+2026-03-31T00:51:34.987295Z	npm error Missing: @radix-ui/react-toast@1.2.15 from lock file
+2026-03-31T00:51:34.987347Z	npm error Missing: @tailwindcss/postcss@4.2.2 from lock file
+2026-03-31T00:51:34.987417Z	npm error Missing: autoprefixer@10.4.27 from lock file
+2026-03-31T00:51:34.987466Z	npm error Missing: react-slick@0.30.3 from lock file
+2026-03-31T00:51:34.987525Z	npm error Missing: slick-carousel@1.8.1 from lock file
+2026-03-31T00:51:34.987586Z	npm error Missing: jquery@4.0.0 from lock file
+2026-03-31T00:51:34.98777Z	npm error Missing: tailwind-merge@2.6.1 from lock file
+2026-03-31T00:51:34.987831Z	npm error Missing: @alloc/quick-lru@5.2.0 from lock file
+2026-03-31T00:51:34.987866Z	npm error Missing: @tailwindcss/node@4.2.2 from lock file
+2026-03-31T00:51:34.987895Z	npm error Missing: @tailwindcss/oxide@4.2.2 from lock file
+2026-03-31T00:51:34.987927Z	npm error Missing: tailwindcss@4.2.2 from lock file
+2026-03-31T00:51:34.987953Z	npm error Invalid: lock file's enhanced-resolve@5.18.4 does not satisfy enhanced-resolve@5.20.1
+2026-03-31T00:51:34.987981Z	npm error Invalid: lock file's lightningcss@1.30.2 does not satisfy lightningcss@1.32.0
+2026-03-31T00:51:34.988048Z	npm error Missing: tailwindcss@4.2.2 from lock file
+2026-03-31T00:51:34.988104Z	npm error Missing: @tailwindcss/oxide-android-arm64@4.2.2 from lock file
+2026-03-31T00:51:34.988194Z	npm error Missing: @tailwindcss/oxide-darwin-arm64@4.2.2 from lock file
+2026-03-31T00:51:34.98825Z	npm error Missing: @tailwindcss/oxide-darwin-x64@4.2.2 from lock file
+2026-03-31T00:51:34.988285Z	npm error Missing: @tailwindcss/oxide-freebsd-x64@4.2.2 from lock file
+2026-03-31T00:51:34.98832Z	npm error Missing: @tailwindcss/oxide-linux-arm-gnueabihf@4.2.2 from lock file
+2026-03-31T00:51:34.988354Z	npm error Missing: @tailwindcss/oxide-linux-arm64-gnu@4.2.2 from lock file
+2026-03-31T00:51:34.98839Z	npm error Missing: @tailwindcss/oxide-linux-arm64-musl@4.2.2 from lock file
+2026-03-31T00:51:34.988423Z	npm error Missing: @tailwindcss/oxide-linux-x64-gnu@4.2.2 from lock file
+2026-03-31T00:51:34.988464Z	npm error Missing: @tailwindcss/oxide-linux-x64-musl@4.2.2 from lock file
+2026-03-31T00:51:34.988498Z	npm error Missing: @tailwindcss/oxide-wasm32-wasi@4.2.2 from lock file
+2026-03-31T00:51:34.988549Z	npm error Missing: @tailwindcss/oxide-win32-arm64-msvc@4.2.2 from lock file
+2026-03-31T00:51:34.988577Z	npm error Missing: @tailwindcss/oxide-win32-x64-msvc@4.2.2 from lock file
+2026-03-31T00:51:34.988604Z	npm error Invalid: lock file's caniuse-lite@1.0.30001765 does not satisfy caniuse-lite@1.0.30001782
+2026-03-31T00:51:34.988631Z	npm error Missing: fraction.js@5.3.4 from lock file
+2026-03-31T00:51:34.988666Z	npm error Missing: postcss-value-parser@4.2.0 from lock file
+2026-03-31T00:51:34.988708Z	npm error Invalid: lock file's lightningcss-android-arm64@1.30.2 does not satisfy lightningcss-android-arm64@1.32.0
+2026-03-31T00:51:34.98876Z	npm error Invalid: lock file's lightningcss-darwin-arm64@1.30.2 does not satisfy lightningcss-darwin-arm64@1.32.0
+2026-03-31T00:51:34.988831Z	npm error Invalid: lock file's lightningcss-darwin-x64@1.30.2 does not satisfy lightningcss-darwin-x64@1.32.0
+2026-03-31T00:51:34.988896Z	npm error Invalid: lock file's lightningcss-freebsd-x64@1.30.2 does not satisfy lightningcss-freebsd-x64@1.32.0
+2026-03-31T00:51:34.988955Z	npm error Invalid: lock file's lightningcss-linux-arm-gnueabihf@1.30.2 does not satisfy lightningcss-linux-arm-gnueabihf@1.32.0
+2026-03-31T00:51:34.989033Z	npm error Invalid: lock file's lightningcss-linux-arm64-gnu@1.30.2 does not satisfy lightningcss-linux-arm64-gnu@1.32.0
+2026-03-31T00:51:34.989103Z	npm error Invalid: lock file's lightningcss-linux-arm64-musl@1.30.2 does not satisfy lightningcss-linux-arm64-musl@1.32.0
+2026-03-31T00:51:34.989161Z	npm error Invalid: lock file's lightningcss-linux-x64-gnu@1.30.2 does not satisfy lightningcss-linux-x64-gnu@1.32.0
+2026-03-31T00:51:34.989212Z	npm error Invalid: lock file's lightningcss-linux-x64-musl@1.30.2 does not satisfy lightningcss-linux-x64-musl@1.32.0
+2026-03-31T00:51:34.98925Z	npm error Invalid: lock file's lightningcss-win32-arm64-msvc@1.30.2 does not satisfy lightningcss-win32-arm64-msvc@1.32.0
+2026-03-31T00:51:34.989373Z	npm error Invalid: lock file's lightningcss-win32-x64-msvc@1.30.2 does not satisfy lightningcss-win32-x64-msvc@1.32.0
+2026-03-31T00:51:34.989458Z	npm error Missing: classnames@2.5.1 from lock file
+2026-03-31T00:51:34.989626Z	npm error Missing: enquire.js@2.1.6 from lock file
+2026-03-31T00:51:34.989702Z	npm error Missing: json2mq@0.2.0 from lock file
+2026-03-31T00:51:34.98976Z	npm error Missing: lodash.debounce@4.0.8 from lock file
+2026-03-31T00:51:34.989808Z	npm error Missing: resize-observer-polyfill@1.5.1 from lock file
+2026-03-31T00:51:34.989856Z	npm error Missing: string-convert@0.2.1 from lock file
+2026-03-31T00:51:34.989908Z	npm error
+2026-03-31T00:51:34.989951Z	npm error Clean install a project
+2026-03-31T00:51:34.989988Z	npm error
+2026-03-31T00:51:34.99003Z	npm error Usage:
+2026-03-31T00:51:34.990075Z	npm error npm ci
+2026-03-31T00:51:34.990122Z	npm error
+2026-03-31T00:51:34.990169Z	npm error Options:
+2026-03-31T00:51:34.990216Z	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-03-31T00:51:34.990265Z	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-03-31T00:51:34.990362Z	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-03-31T00:51:34.990435Z	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-03-31T00:51:34.990551Z	npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-03-31T00:51:34.990631Z	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-03-31T00:51:34.99068Z	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-03-31T00:51:34.990737Z	npm error
+2026-03-31T00:51:34.990796Z	npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-03-31T00:51:34.990854Z	npm error
+2026-03-31T00:51:34.990887Z	npm error Run "npm help ci" for more info
+2026-03-31T00:51:34.990924Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-03-31T00_51_31_116Z-debug-0.log
+2026-03-31T00:51:35.065183Z	Error: Exit with error code: 1
+2026-03-31T00:51:35.065479Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-03-31T00:51:35.065585Z	    at Object.onceWrapper (node:events:652:26)
+2026-03-31T00:51:35.065632Z	    at ChildProcess.emit (node:events:537:28)
+2026-03-31T00:51:35.065666Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-03-31T00:51:35.072438Z	Failed: build command exited with code: 1
+2026-03-31T00:51:36.333259Z	Failed: error occurred while running build command

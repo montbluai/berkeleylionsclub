@@ -1,21 +1,20 @@
 import { useState } from 'react';
-import { Home } from './components/Home';
-import { About } from './components/About';
-import { PhotoGallery } from './components/PhotoGallery';
-import { Volunteer } from './components/Volunteer';
-import { Join } from './components/Join';
-import { Donate } from './components/Donate';
-import { ContactUs } from './components/ContactUs';
-import { Privacy } from './components/Privacy';
-import { PrivacyPolicy } from './components/PrivacyPolicy';
-import { TermsOfUse } from './components/TermsOfUse';
-import { Disclosures } from './components/Disclosures';
-import { Navigation } from './components/Navigation';
-import { Footer } from './components/Footer';
-import { AdminGalleryUpload } from './components/AdminGalleryUpload';
-import { AdminEventUpload } from './components/AdminEventUpload';
+import { Home } from '../components/Home';
+import { About } from '../components/About';
+import { PhotoGallery } from '../components/PhotoGallery';
+import { Volunteer } from '../components/Volunteer';
+import { Join } from '../components/Join';
+import { Donate } from '../components/Donate';
+import { ContactUs } from '../components/ContactUs';
+import { Privacy } from '../components/Privacy';
+import { PrivacyPolicy } from '../components/PrivacyPolicy';
+import { TermsOfUse } from '../components/TermsOfUse';
+import { Disclosures } from '../components/Disclosures';
+import { Navigation } from '../components/Navigation';
+import { Footer } from '../components/Footer';
+import { AdminDashboard } from '../components/AdminDashboard';
 
-type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload' | 'admin-events';
+type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -51,9 +50,7 @@ export default function App() {
       case 'disclosures':
         return <Disclosures />;
       case 'admin-upload':
-        return <AdminGalleryUpload />;
-      case 'admin-events':
-        return <AdminEventUpload />;
+        return <AdminDashboard />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }

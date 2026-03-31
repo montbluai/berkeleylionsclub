@@ -18,8 +18,15 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'ui-vendor': ['lucide-react', 'react-slick']
-        }
+        },
+        sourcemap: false
       }
     }
+  },
+  server: {
+    sourcemap: false
+  },
+  css: {
+    devSourcemap: false
   }
 });
