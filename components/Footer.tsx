@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 // Custom Facebook SVG Icon Component
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
   <svg 
