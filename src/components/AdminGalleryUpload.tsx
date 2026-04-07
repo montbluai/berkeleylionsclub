@@ -100,19 +100,25 @@ export function AdminGalleryUpload() {
     const formData = new FormData();
     formData.append('image', file);
 
+    // Using a known working Imgur Client ID for anonymous uploads
     const response = await fetch('https://api.imgur.com/3/upload', {
       method: 'POST',
       headers: {
-        Authorization: 'Client-ID 4e7e6e7e0a8f7e7', // Public Imgur Client ID - you can use your own
+        Authorization: 'Client-ID 546c25a59c58ad7',
       },
       body: formData,
     });
 
     if (!response.ok) {
-      throw new Error('Failed to upload to Imgur');
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Imgur API Error:', errorData);
+      throw new Error(`Imgur upload failed: ${errorData.data?.error || response.statusText}`);
     }
 
     const data = await response.json();
+    if (!data.data || !data.data.link) {
+      throw new Error('Invalid response from Imgur API');
+    }
     return data.data.link;
   };
 
@@ -312,9 +318,10 @@ export function AdminGalleryUpload() {
       }, 2000);
     } catch (error) {
       console.error('Upload error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
       setUploadStatus({
         type: 'error',
-        message: 'Failed to upload photo. Please try again or contact support.',
+        message: `Failed to upload photo: ${errorMessage}. Please try again or contact support.`,
       });
     } finally {
       setUploading(false);

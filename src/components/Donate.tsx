@@ -1,6 +1,6 @@
-import { Shield, Glasses, Smartphone, Ear, FileHeart, MapPin, ExternalLink, X } from 'lucide-react';
+import { Shield, Glasses, Smartphone, Ear, FileHeart, MapPin, ExternalLink, X, Ticket, Calendar, Download } from 'lucide-react';
 import { Button } from './ui/button';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Organization logos
 const orgLogos: Record<string, string | string[]> = {
@@ -50,6 +50,32 @@ const orgLogos: Record<string, string | string[]> = {
 
 export function Donate() {
   const [isPlannedGivingModalOpen, setIsPlannedGivingModalOpen] = useState(false);
+  const [isFlyerModalOpen, setIsFlyerModalOpen] = useState(false);
+  const flyerTriggerRef = useRef<HTMLImageElement>(null);
+  const lastFocusedElement = useRef<HTMLElement | null>(null);
+
+  // Handle ESC key for modals
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (isPlannedGivingModalOpen) {
+          setIsPlannedGivingModalOpen(false);
+          // Return focus to the last focused element
+          if (lastFocusedElement.current) {
+            lastFocusedElement.current.focus();
+          }
+        } else if (isFlyerModalOpen) {
+          setIsFlyerModalOpen(false);
+          flyerTriggerRef.current?.focus();
+        }
+      }
+    };
+    
+    if (isPlannedGivingModalOpen || isFlyerModalOpen) {
+      document.addEventListener('keydown', handleEsc);
+      return () => document.removeEventListener('keydown', handleEsc);
+    }
+  }, [isPlannedGivingModalOpen, isFlyerModalOpen]);
 
   return (
     <div className="py-16">
@@ -99,6 +125,87 @@ export function Donate() {
                 title="Berkeley Lions Club Donation - Secure Payment via Square"
               >
               </iframe>
+            </div>
+          </div>
+        </div>
+
+        {/* Support Through Events */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-8 md:p-12 shadow-xl">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style={{ backgroundColor: '#EBB700' }}>
+                <Ticket className="text-white" size={40} />
+              </div>
+              <h2 className="text-3xl md:text-4xl mb-4" style={{ color: '#00338D' }}>
+                Support Through Events
+              </h2>
+              <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+                Your ticket purchase helps fund our community programs while enjoying a fun evening with fellow supporters
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+                {/* Event Image - Casino Night Flyer */}
+                <div className="w-full md:w-2/5 flex-shrink-0">
+                  <img 
+                    src="https://i.imgur.com/18gfyLU.jpg"
+                    alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Fundraiser benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                    className="w-full rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => setIsFlyerModalOpen(true)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setIsFlyerModalOpen(true);
+                      }
+                    }}
+                    ref={flyerTriggerRef}
+                  />
+                  <p className="text-sm text-gray-600 mt-2 text-center">
+                    Click to view full size
+                  </p>
+                </div>
+
+                {/* Event Details */}
+                <div className="flex-1">
+                  <h3 className="text-2xl mb-3" style={{ color: '#1740a5' }}>
+                    Berkeley Lions Casino Night 2026
+                  </h3>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-2">
+                      <Calendar size={20} style={{ color: '#00338D' }} className="flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-gray-800"><strong>Saturday, May 30th, 2026</strong></p>
+                        <p className="text-gray-600 text-sm">Doors at 6:00 PM to 10:00 PM</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <MapPin size={20} style={{ color: '#00338D' }} className="flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-700">
+                        Northbrae Community Church<br />
+                        <span className="text-sm">941 the Alameda, Berkeley, CA</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 mb-6">
+                    An evening of casino games, cocktails, buffet dinner, and fundraising. All proceeds support 
+                    vision care, hunger relief, and community service programs in Berkeley.
+                  </p>
+                  <Button
+                    onClick={() => setIsFlyerModalOpen(true)}
+                    className="w-full text-lg px-8 py-4 inline-flex items-center justify-center gap-2"
+                    style={{ backgroundColor: '#EBB700', color: '#00338D' }}
+                  >
+                    <Ticket size={20} aria-hidden="true" />
+                    Purchase Tickets
+                  </Button>
+                  <p className="text-center text-sm text-gray-600 mt-3">
+                    Tax-deductible to the extent allowed by law
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -170,7 +277,7 @@ export function Donate() {
                 Contact Us About Planned Giving
               </Button>
               <p className="text-white/80 text-sm mt-4">
-                Email: legacy@berkeleylions.org | Phone: (510) XXX-XXXX
+                Email: lionsberkeley@gmail.com | Phone: (510) 364-8734
               </p>
             </div>
 
@@ -396,7 +503,7 @@ export function Donate() {
               <div className="flex items-start gap-4">
                 <MapPin size={32} style={{ color: '#f2ca47' }} className="flex-shrink-0" />
                 <div>
-                  <h3 className="text-xl mb-2" style={{ color: '#1740a5' }}>Berkeley Optometrics</h3>
+                  <h3 className="text-xl mb-2" style={{ color: '#1740a5' }}>The Berkeley Optometric Group</h3>
                   <p className="text-gray-700 mb-2">
                     2414 Shattuck Ave<br />
                     Berkeley, CA 94704
@@ -496,6 +603,51 @@ export function Donate() {
               <p className="text-center text-sm text-gray-600 mt-4">
                 We respect <a href="/privacy" className="underline hover:no-underline" style={{ color: '#1740a5' }}>your privacy</a>. Unsubscribe at any time.
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Flyer Modal */}
+      {isFlyerModalOpen && (
+        <div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-50"
+          onClick={() => setIsFlyerModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="flyer-modal-title"
+        >
+          <div
+            className="relative w-full h-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsFlyerModalOpen(false)}
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10"
+              aria-label="Close modal"
+            >
+              <X size={32} />
+            </button>
+
+            {/* Download Button */}
+            <a
+              href="https://i.imgur.com/18gfyLU.jpg"
+              download="Berkeley-Lions-Casino-Night-2026-Flyer.jpg"
+              className="absolute top-4 left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 inline-flex items-center gap-2"
+              aria-label="Download flyer"
+            >
+              <Download size={32} />
+            </a>
+
+            {/* Scrollable Image Container */}
+            <div className="w-full h-full overflow-auto flex items-start justify-center p-4">
+              <img
+                src="https://i.imgur.com/18gfyLU.jpg"
+                alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Fundraiser benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                className="w-full max-w-full h-auto"
+                id="flyer-modal-title"
+              />
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 
-  # Berkeley Lions Club New Official Website
+  # Berkeley Lions Club Official Website
 
-  This is a code bundle for Berkeley Lions Club New Official Website. The original project is available at https://www.figma.com/design/WGOrHd9y9KRxElm6k9PufX/Berkeley-Lions-Club-New-Official-Website.
+  This is a code bundle for Berkeley Lions Club Official Website. The original project is available at https://www.figma.com/design/ZNwHQ2x4sF7BvSqM6ZHrws/Berkeley-Lions-Club-Official-Website.
 
   ## Running the code
 

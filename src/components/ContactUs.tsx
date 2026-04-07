@@ -204,11 +204,11 @@ export function ContactUs() {
                       <div>
                         <p className="text-sm text-gray-600">General Inquiries:</p>
                         <a 
-                          href="mailto:info@berkeleylions.org"
+                          href="mailto:lionsberkeley@gmailcom"
                           className="hover:underline"
                           style={{ color: '#1740a5' }}
                         >
-                          info@berkeleylions.org
+                          lionsberkeley@gmailcom
                         </a>
                       </div>
                     </div>
@@ -230,14 +230,14 @@ export function ContactUs() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                  href="mailto:membership@berkeleylions.org"
+                  href="mailto:lionsberkeley@gmailcom"
                   className="px-8 py-4 rounded-lg transition-opacity hover:opacity-90 inline-block"
                   style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}
                 >
                   Contact Membership Chairman
                 </a>
                 <a
-                  href="mailto:secretary@berkeleylions.org"
+                  href="mailto:lionsberkeley@gmailcom"
                   className="px-8 py-4 rounded-lg bg-white transition-opacity hover:opacity-90 inline-block"
                   style={{ color: '#1740a5' }}
                 >

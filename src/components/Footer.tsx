@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 // Custom Facebook SVG Icon Component
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
   <svg 
@@ -32,22 +34,6 @@ const InstagramIcon = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
-// Custom TikTok SVG Icon Component
-const TikTokIcon = ({ size = 20 }: { size?: number }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-  </svg>
-);
-
 type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload';
 
 interface FooterProps {
@@ -59,6 +45,27 @@ export function Footer({ onNavigate }: FooterProps) {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Load chat widget script
+  useEffect(() => {
+    // Check if script already exists
+    const existingScript = document.querySelector('script[data-widget-id="69d498b39a2211e8cc58afd2"]');
+    if (existingScript) {
+      return;
+    }
+
+    try {
+      const script = document.createElement('script');
+      script.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      script.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+      script.setAttribute('data-widget-id', '69d498b39a2211e8cc58afd2');
+      script.async = true;
+      
+      document.body.appendChild(script);
+    } catch (error) {
+      console.error('Failed to load chat widget:', error);
+    }
+  }, []);
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -139,7 +146,7 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="mb-4" style={{ color: '#f2ca47' }}>Connect With Us</h3>
             <div className="flex gap-4 mb-4">
               <a
-                href="https://facebook.com/berkeleylionsclub"
+                href="https://www.facebook.com/BerkeleyLions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-blue-600 transition-colors"
@@ -148,7 +155,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <FacebookIcon size={20} />
               </a>
               <a
-                href="https://instagram.com/berkeleylionsclub"
+                href="https://www.instagram.com/berkeleylions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-pink-600 transition-colors"
@@ -156,19 +163,10 @@ export function Footer({ onNavigate }: FooterProps) {
               >
                 <InstagramIcon size={20} />
               </a>
-              <a
-                href="https://tiktok.com/@berkeleylionsclub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-black transition-colors"
-                aria-label="TikTok"
-              >
-                <TikTokIcon size={20} />
-              </a>
             </div>
             <div className="text-gray-400 text-sm">
-              <p>Email: info@berkeleylions.org</p>
-              <p className="mt-1">Phone: (510) 555-LION</p>
+              <p>Email: lionsberkeley@gmail.com</p>
+              <p className="mt-1">Phone: (510) 364-8734</p>
             </div>
           </div>
         </div>

@@ -59,8 +59,8 @@ export function Join() {
 
             <p className="text-sm text-gray-600 mt-2 text-center">
               Questions? Contact our Membership Chair at{' '}
-              <a href="mailto:membership@berkeleylions.org" className="hover:underline" style={{ color: '#1740a5' }}>
-                membership@berkeleylions.org
+              <a href="mailto:lionsberkeley@gmailcom" className="hover:underline" style={{ color: '#1740a5' }}>
+                lionsberkeley@gmailcom
               </a>
             </p>
           </div>

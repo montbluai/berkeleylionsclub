@@ -12,7 +12,7 @@ export function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [activeTab, setActiveTab] = useState<AdminTab>('gallery');
+  const [activeTab, setActiveTab] = useState<AdminTab>('leadership');
 
   // Password protection - matches existing admin pages
   const ADMIN_PASSWORD = 'berkeley2025';
@@ -30,7 +30,7 @@ export function AdminDashboard() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setPassword('');
-    setActiveTab('gallery');
+    setActiveTab('leadership');
   };
 
   // Login Screen
@@ -111,13 +111,8 @@ export function AdminDashboard() {
           {/* Tab Navigation */}
           <div className="flex gap-2 border-b border-gray-200">
             <button
-              onClick={() => setActiveTab('gallery')}
-              className={`px-6 py-3 font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'gallery'
-                  ? 'border-b-2 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-              style={activeTab === 'gallery' ? { borderColor: '#1740a5', color: '#1740a5' } : {}}
+              disabled
+              className="px-6 py-3 font-semibold transition-all flex items-center gap-2 text-gray-400 cursor-not-allowed opacity-50"
             >
               <ImageIcon size={20} />
               Photo Gallery
@@ -135,13 +130,8 @@ export function AdminDashboard() {
               Calendar Events
             </button>
             <button
-              onClick={() => setActiveTab('featured')}
-              className={`px-6 py-3 font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'featured'
-                  ? 'border-b-2 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-              style={activeTab === 'featured' ? { borderColor: '#1740a5', color: '#1740a5' } : {}}
+              disabled
+              className="px-6 py-3 font-semibold transition-all flex items-center gap-2 text-gray-400 cursor-not-allowed opacity-50"
             >
               <Star size={20} />
               Featured Event
@@ -164,12 +154,8 @@ export function AdminDashboard() {
 
       {/* Tab Content */}
       <div className="py-8">
-        {activeTab === 'gallery' ? (
-          <AdminGalleryContent />
-        ) : activeTab === 'events' ? (
+        {activeTab === 'events' ? (
           <AdminEventContent />
-        ) : activeTab === 'featured' ? (
-          <AdminFeaturedEventContent />
         ) : (
           <AdminLeadershipContent />
         )}
