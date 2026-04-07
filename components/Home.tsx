@@ -331,7 +331,7 @@ export function Home({ onNavigate }: HomeProps) {
                     Berkeley Lions Casino Night 2026
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">
-                    Join us for our first annual Casino Night fundraiser! An evening of fun, food, and fundraising to support our community service programs.
+                    Join us for our first annual Casino Night fundraising event! An evening of fun, food, and fundraising to support our community service programs.
                   </p>
                   <p className="mb-4" style={{ color: '#00338D' }}>
                     <strong>Saturday, May 30th, 2026</strong><br />
