@@ -98,7 +98,7 @@ export function Privacy({ onNavigate }: PrivacyProps) {
                 <div className="mr-3 mt-1">📞</div>
                 <div>
                   <strong style={{ color: '#1740a5' }}>Phone:</strong>
-                  <p className="text-gray-700">(510) 364-8734</p>
+                  <p className="text-gray-700">(510) 391-LION</p>
                 </div>
               </div>
             </div>
