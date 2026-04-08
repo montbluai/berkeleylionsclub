@@ -20,7 +20,9 @@ export function EventsCalendar({ calendars, title, description, showToggle = tru
   const [iframeError, setIframeError] = useState(false);
   const [calendarLoaded, setCalendarLoaded] = useState(false);
   const [shouldLoadIframe, setShouldLoadIframe] = useState(false);
+  const [showDebugInfo, setShowDebugInfo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Intersection Observer to load calendar only when visible
   useEffect(() => {
@@ -129,6 +131,7 @@ export function EventsCalendar({ calendars, title, description, showToggle = tru
           <div className="bg-white rounded-lg shadow-xl overflow-hidden" ref={containerRef}>
             {shouldLoadIframe && calendarUrl ? (
               <iframe
+                ref={iframeRef}
                 src={calendarUrl}
                 className="w-full h-[600px] border-0"
                 title="Berkeley Lions Club Events Calendar"
