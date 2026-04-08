@@ -1,5 +1,3 @@
-throw new Error("TEST BREAK");
-
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight, Eye, Heart, Users, HandHeart, Calendar, MapPin, Play, Pause, Ticket, X, Download } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
@@ -369,7 +367,7 @@ export function Home({ onNavigate }: HomeProps) {
       <EventsCalendar
         calendars={[
           {
-            id: '4407935e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
+            id: '44079359e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
             name: '🤝 Volunteer Opportunities',
             color: '#00338D'
           },

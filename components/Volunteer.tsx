@@ -45,19 +45,47 @@ export function Volunteer() {
           if (upcomingEvent) {
             setFeaturedEvent(upcomingEvent);
           } else {
-            setFeaturedEvent(null);
+            // Fallback to default Casino Night event
+            setFeaturedEvent(getDefaultCasinoNightEvent());
           }
         } else {
-          setFeaturedEvent(null);
+          // No localStorage data - use default Casino Night event
+          setFeaturedEvent(getDefaultCasinoNightEvent());
         }
       } catch (error) {
         console.error('Error loading featured event:', error);
-        setFeaturedEvent(null);
+        // Fallback to default Casino Night event on error
+        setFeaturedEvent(getDefaultCasinoNightEvent());
       }
     };
 
     loadFeaturedEvent();
   }, []);
+
+  // Default Casino Night Event
+  const getDefaultCasinoNightEvent = (): FeaturedEvent => ({
+    posterUrl: 'https://i.imgur.com/18gfyLU.jpg',
+    eventName: 'Berkeley Lions Casino Night 2026',
+    description: 'Join us for our first annual Casino Night! We need 20-30 volunteers of all ages to help make this event a success.',
+    date: '2026-05-30',
+    time: '6:00 PM to 10:00 PM',
+    locationName: 'Northbrae Community Church',
+    address: '941 the Alameda, Berkeley, CA',
+    volunteersNeeded: '20-30 volunteers of all ages',
+    ageRequirement: 'All ages welcome',
+    volunteerTasks: [
+      'Serve cocktails and beverages',
+      'Set up and break down the casino tables',
+      'Set up and break down buffet dinner tables',
+      'Welcome casino guests',
+      'Help with orders',
+      'General event support'
+    ],
+    isFree: false,
+    ticketPrice: '$75 per ticket',
+    togoAvailable: false,
+    additionalInfo: 'Roaring \'20s theme - Costume contest, Blackjack, Roulette, Craps, Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Fundraiser benefiting our local community projects. No experience necessary - we provide training and all supplies!'
+  });
 
   const getEventBadge = (dateString: string) => {
     const date = new Date(dateString);
@@ -67,7 +95,9 @@ export function Volunteer() {
   };
 
   const formatEventDate = (dateString: string) => {
-    const date = new Date(dateString);
+    // Parse date string to avoid timezone issues
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', { 
       weekday: 'long', 
       year: 'numeric', 
@@ -254,7 +284,7 @@ export function Volunteer() {
           <EventsCalendar
             calendars={[
               {
-                id: '4407935e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
+                id: '44079359e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
                 name: '🤝 Volunteer Opportunities',
                 color: '#1740a5'
               },
@@ -302,7 +332,7 @@ export function Volunteer() {
             </div>
 
             <p className="text-sm text-gray-600 mt-4 text-center">
-              Questions? Email us at <a href="mailto:volunteer@berkeleylions.org" className="hover:underline" style={{ color: '#1740a5' }}>volunteer@berkeleylions.org</a>
+              Questions? Email us at <a href="mailto:lionsberkeley@gmail.com" className="hover:underline" style={{ color: '#1740a5' }}>lionsberkeley@gmail.com</a>
             </p>
           </div>
         </div>
