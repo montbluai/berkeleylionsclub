@@ -23,7 +23,7 @@ Run through this checklist before deploying to Cloudflare Pages:
 
 ### vite.config.ts
 ✅ React plugin configured
-✅ Build output directory set to `build`
+✅ Build output directory set to `dist`
 
 ### index.html
 ✅ Root div with id="root"
@@ -42,7 +42,7 @@ When deploying, use these settings:
 ```
 Framework preset: Vite
 Build command: npm run build
-Build output directory: build
+Build output directory: dist
 Root directory: / (leave blank)
 Node version: 18 (set as environment variable)
 ```

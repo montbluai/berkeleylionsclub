@@ -332,7 +332,7 @@ export function Volunteer() {
             </div>
 
             <p className="text-sm text-gray-600 mt-4 text-center">
-              Questions? Email us at <a href="mailto:lionsberkeley@gmailcom" className="hover:underline" style={{ color: '#1740a5' }}>lionsberkeley@gmailcom</a>
+              Questions? Email us at <a href="mailto:lionsberkeley@gmail.com" className="hover:underline" style={{ color: '#1740a5' }}>lionsberkeley@gmail.com</a>
             </p>
           </div>
         </div>

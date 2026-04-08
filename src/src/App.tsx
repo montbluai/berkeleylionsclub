@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from '../components/Home';
 import { About } from '../components/About';
 import { PhotoGallery } from '../components/PhotoGallery';
@@ -18,6 +18,59 @@ type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'co
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  // Initialize demo featured event if none exists or if existing event is past
+  useEffect(() => {
+    const existing = localStorage.getItem('featured_event');
+    let shouldCreateDemo = false;
+    
+    if (!existing) {
+      shouldCreateDemo = true;
+    } else {
+      try {
+        const event = JSON.parse(existing);
+        const eventDate = new Date(event.date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        // If event is in the past, create a new demo
+        if (eventDate < today) {
+          shouldCreateDemo = true;
+        }
+      } catch (e) {
+        shouldCreateDemo = true;
+      }
+    }
+    
+    if (shouldCreateDemo) {
+      const demoEvent = {
+        posterUrl: 'https://images.unsplash.com/photo-1768162125903-e142cba00c9f?w=800',
+        eventName: 'Berkeley Lions Club Spring BBQ Fundraiser',
+        description: 'Join us for our spring community fundraiser! Volunteers needed to help make this event a success.',
+        date: '2026-05-15',
+        time: 'Doors at 5:00 PM, Dinner at 6:00 PM',
+        locationName: 'Northbrae Community Church',
+        address: '941 the Alameda, Berkeley, CA',
+        volunteersNeeded: '15-20 people',
+        ageRequirement: 'All ages welcome!',
+        volunteerTasks: [
+          'Set up tables and chairs',
+          'Grill burgers and hot dogs',
+          'Serve food to guests',
+          'Welcome attendees',
+          'Help with cleanup',
+          'Assist with beverage station',
+          'General event support'
+        ],
+        isFree: false,
+        ticketPrice: '$25 per person',
+        squarePaymentLink: '', // Can be added via admin panel
+        togoAvailable: false,
+        additionalInfo: 'No experience necessary! We provide training and all supplies.'
+      };
+      localStorage.setItem('featured_event', JSON.stringify(demoEvent));
+    }
+  }, []);
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);

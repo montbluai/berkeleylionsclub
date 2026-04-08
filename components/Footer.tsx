@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 // Custom Facebook SVG Icon Component
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
   <svg 
@@ -45,27 +43,6 @@ export function Footer({ onNavigate }: FooterProps) {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  // Load chat widget script
-  useEffect(() => {
-    // Check if script already exists
-    const existingScript = document.querySelector('script[data-widget-id="69d498b39a2211e8cc58afd2"]');
-    if (existingScript) {
-      return;
-    }
-
-    try {
-      const script = document.createElement('script');
-      script.src = 'https://widgets.leadconnectorhq.com/loader.js';
-      script.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-      script.setAttribute('data-widget-id', '69d498b39a2211e8cc58afd2');
-      script.async = true;
-      
-      document.body.appendChild(script);
-    } catch (error) {
-      console.error('Failed to load chat widget:', error);
-    }
-  }, []);
 
   return (
     <footer className="bg-gray-900 text-white py-12">

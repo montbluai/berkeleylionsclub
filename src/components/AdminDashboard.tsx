@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Calendar, Image as ImageIcon, LogOut, Star, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Calendar, Image as ImageIcon, LogOut, Star, Users, Shield } from 'lucide-react';
 import { GalleryManagementContent } from './GalleryManagementContent';
 import { EventManagementContent } from './EventManagementContent';
 import { FeaturedEventForm } from './FeaturedEventForm';
 import { ClubLeadershipContent } from './ClubLeadershipContent';
 import { Button } from './ui/button';
+import { authManager } from '../utils/secureAuth';
 
 type AdminTab = 'gallery' | 'events' | 'featured' | 'leadership';
 
@@ -13,21 +14,39 @@ export function AdminDashboard() {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [activeTab, setActiveTab] = useState<AdminTab>('leadership');
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Password protection - matches existing admin pages
-  const ADMIN_PASSWORD = 'berkeley2025';
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
+  // Check for existing session on mount
+  useEffect(() => {
+    if (authManager.isSessionValid()) {
       setIsAuthenticated(true);
-      setPasswordError('');
-    } else {
-      setPasswordError('Incorrect password. Please try again.');
+    }
+  }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setPasswordError('');
+
+    try {
+      const result = await authManager.verifyPassword(password);
+      
+      if (result.success) {
+        setIsAuthenticated(true);
+        setPasswordError('');
+        setPassword('');
+      } else {
+        setPasswordError(result.error || 'Incorrect password. Please try again.');
+      }
+    } catch (error) {
+      setPasswordError('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleLogout = () => {
+    authManager.logout();
     setIsAuthenticated(false);
     setPassword('');
     setActiveTab('leadership');
@@ -71,8 +90,9 @@ export function AdminDashboard() {
                 type="submit"
                 className="w-full text-white py-3"
                 style={{ backgroundColor: '#1740a5' }}
+                disabled={isLoading}
               >
-                Login to Admin Dashboard
+                {isLoading ? 'Logging in...' : 'Login to Admin Dashboard'}
               </Button>
             </form>
 

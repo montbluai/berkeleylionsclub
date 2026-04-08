@@ -33,7 +33,6 @@ export default function App() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         
-        // If event is in the past, create a new demo
         if (eventDate < today) {
           shouldCreateDemo = true;
         }
@@ -64,7 +63,7 @@ export default function App() {
         ],
         isFree: false,
         ticketPrice: '$25 per person',
-        squarePaymentLink: '', // Can be added via admin panel
+        squarePaymentLink: '',
         togoAvailable: false,
         additionalInfo: 'No experience necessary! We provide training and all supplies.'
       };
@@ -74,7 +73,6 @@ export default function App() {
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);
-    // Scroll to top of page when navigating
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

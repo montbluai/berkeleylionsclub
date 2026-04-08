@@ -42,7 +42,7 @@ Production branch: main
 Build settings:
 ├── Framework preset: Vite
 ├── Build command: npm run build
-├── Build output directory: build
+├── Build output directory: dist
 └── Root directory: / (leave blank or default)
 ```
 
@@ -77,13 +77,13 @@ On your local machine:
 npm install
 npm run build
 ```
-This creates a `build/` folder with your built website.
+This creates a `dist/` folder with your built website.
 
 ### Step 2: Upload to Cloudflare
 1. Go to **Cloudflare Dashboard** → **Workers & Pages**
 2. Click **Create application** → **Pages** → **Upload assets**
 3. Name your project: `berkeley-lions-club`
-4. Drag and drop the entire `build` folder
+4. Drag and drop the entire `dist` folder
 5. Click **Deploy site**
 
 ### Step 3: Add Custom Domain

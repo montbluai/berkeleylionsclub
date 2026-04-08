@@ -277,7 +277,7 @@ export function Donate() {
                 Contact Us About Planned Giving
               </Button>
               <p className="text-white/80 text-sm mt-4">
-                Email: lionsberkeley@gmail.com | Phone: (510) 364-8734
+                Email: lionsberkeley@gmail.com | Phone: (510) 391-LION
               </p>
             </div>
 
