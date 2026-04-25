@@ -84,7 +84,7 @@ export function Volunteer() {
     isFree: false,
     ticketPrice: '$75 per ticket',
     togoAvailable: false,
-    additionalInfo: 'Roaring \'20s theme - Costume contest, Blackjack, Roulette, Craps, Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Fundraiser benefiting our local community projects. No experience necessary - we provide training and all supplies!'
+    additionalInfo: 'Roaring \'20s theme - Costume contest, Blackjack, Roulette, Craps, Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Event benefiting our local community projects. No experience necessary - we provide training and all supplies!'
   });
 
   const getEventBadge = (dateString: string) => {

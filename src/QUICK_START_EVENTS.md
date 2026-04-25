@@ -29,7 +29,7 @@ Follow the complete guide: **SUPABASE_SETUP_GUIDE.md**
 2. Login with password
 3. Fill out the form:
    - **Upload poster image** (required)
-   - **Event name** (e.g., "Spring BBQ Fundraiser 2026")
+   - **Event name** (e.g., "Spring BBQ Event 2026")
    - **Description** (short tagline)
    - **Date** (use date picker)
    - **Time** (e.g., "Doors at 5pm, Dinner at 6pm")

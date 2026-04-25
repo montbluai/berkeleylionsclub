@@ -45,8 +45,8 @@ export default function App() {
     if (shouldCreateDemo) {
       const demoEvent = {
         posterUrl: 'https://images.unsplash.com/photo-1768162125903-e142cba00c9f?w=800',
-        eventName: 'Berkeley Lions Club Spring BBQ Fundraiser',
-        description: 'Join us for our spring community fundraiser! Volunteers needed to help make this event a success.',
+        eventName: 'Berkeley Lions Club Spring BBQ Event',
+        description: 'Join us for our spring community event! Volunteers needed to help make this event a success.',
         date: '2026-05-15',
         time: 'Doors at 5:00 PM, Dinner at 6:00 PM',
         locationName: 'Northbrae Community Church',

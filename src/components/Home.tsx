@@ -306,7 +306,7 @@ export function Home({ onNavigate }: HomeProps) {
                 <div className="w-full md:w-2/5 flex-shrink-0">
                   <img 
                     src="https://i.imgur.com/18gfyLU.jpg"
-                    alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Fundraiser benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                    alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Event benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
                     className="w-full rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
                     onClick={() => setIsFlyerModalOpen(true)}
                     role="button"
@@ -330,7 +330,7 @@ export function Home({ onNavigate }: HomeProps) {
                     Berkeley Lions Casino Night 2026
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">
-                    Join us for our first annual Casino Night fundraiser! An evening of fun, food, and fundraising to support our community service programs.
+                    Join us for our first annual Casino Night event! An evening of fun, food, and activities to support our community service programs.
                   </p>
                   <p className="mb-4" style={{ color: '#00338D' }}>
                     <strong>Saturday, May 30th, 2026</strong><br />
@@ -423,7 +423,7 @@ export function Home({ onNavigate }: HomeProps) {
             <div className="w-full h-full overflow-auto flex items-start justify-center p-4">
               <img
                 src="https://i.imgur.com/18gfyLU.jpg"
-                alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Fundraiser benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Event benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
                 className="w-full max-w-full h-auto"
                 id="flyer-modal-title"
               />
