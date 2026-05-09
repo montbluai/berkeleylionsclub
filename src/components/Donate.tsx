@@ -1,6 +1,7 @@
 import { Shield, Glasses, Smartphone, Ear, FileHeart, MapPin, ExternalLink, X, Ticket, Calendar, Download } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState, useEffect, useRef } from 'react';
+import { GHLForm } from './GHLForm';
 
 // Organization logos
 const orgLogos: Record<string, string | string[]> = {
@@ -579,25 +580,11 @@ export function Donate() {
               </p>
               
               <div style={{ minHeight: '964px' }}>
-                <iframe
-                  src="https://links.montbluai.com/widget/form/ZRdEZmK5eF5tDJrRl1Mt"
-                  style={{ width: '100%', height: '964px', border: 'none', borderRadius: '3px' }}
-                  id="inline-ZRdEZmK5eF5tDJrRl1Mt" 
-                  data-layout="{'id':'INLINE'}"
-                  data-trigger-type="alwaysShow"
-                  data-trigger-value=""
-                  data-activation-type="alwaysActivated"
-                  data-activation-value=""
-                  data-deactivation-type="neverDeactivate"
-                  data-deactivation-value=""
-                  data-form-name="Planned Giving"
-                  data-height="964"
-                  data-layout-iframe-id="inline-ZRdEZmK5eF5tDJrRl1Mt"
-                  data-form-id="ZRdEZmK5eF5tDJrRl1Mt"
-                  title="Planned Giving"
-                >
-                </iframe>
-                <script src="https://links.montbluai.com/js/form_embed.js"></script>
+                <GHLForm
+                  formId="ZRdEZmK5eF5tDJrRl1Mt"
+                  formName="Planned Giving"
+                  height={964}
+                />
               </div>
 
               <p className="text-center text-sm text-gray-600 mt-4">

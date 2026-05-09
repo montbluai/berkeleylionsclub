@@ -1,5 +1,6 @@
 import { Calendar, MapPin, Mail, Users, Video } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { GHLForm } from './GHLForm';
 
 interface LeadershipPosition {
   id: string;
@@ -64,25 +65,11 @@ export function ContactUs() {
 
             {/* GoHighLevel Contact Form */}
             <div style={{ minHeight: '738px' }}>
-              <iframe
-                src="https://links.montbluai.com/widget/form/rWp85r99A08OuqoRWAux"
-                style={{ width: '100%', height: '738px', border: 'none', borderRadius: '3px' }}
-                id="inline-rWp85r99A08OuqoRWAux" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Contact the Berkeley Lions Club"
-                data-height="738"
-                data-layout-iframe-id="inline-rWp85r99A08OuqoRWAux"
-                data-form-id="rWp85r99A08OuqoRWAux"
-                title="Contact the Berkeley Lions Club"
-              >
-              </iframe>
-              <script src="https://links.montbluai.com/js/form_embed.js"></script>
+              <GHLForm
+                formId="rWp85r99A08OuqoRWAux"
+                formName="Contact the Berkeley Lions Club"
+                height={738}
+              />
             </div>
 
             <p className="text-center text-sm text-gray-600 mt-4">

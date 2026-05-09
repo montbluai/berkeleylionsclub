@@ -3,6 +3,7 @@ import { EventsCalendar } from './EventsCalendar';
 import { Button } from './ui/button';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { GHLForm } from './GHLForm';
 
 interface FeaturedEvent {
   posterUrl: string;
@@ -310,25 +311,11 @@ export function Volunteer() {
 
             {/* GoHighLevel Volunteer Form */}
             <div style={{ minHeight: '708px' }}>
-              <iframe
-                src="https://links.montbluai.com/widget/form/3XipndQKk8cyAunXuiQu"
-                style={{ width: '100%', height: '708px', border: 'none', borderRadius: '3px' }}
-                id="inline-3XipndQKk8cyAunXuiQu" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Volunteer with the Berkeley Lions Club"
-                data-height="708"
-                data-layout-iframe-id="inline-3XipndQKk8cyAunXuiQu"
-                data-form-id="3XipndQKk8cyAunXuiQu"
-                title="Volunteer with the Berkeley Lions Club"
-              >
-              </iframe>
-              <script src="https://links.montbluai.com/js/form_embed.js"></script>
+              <GHLForm
+                formId="3XipndQKk8cyAunXuiQu"
+                formName="Volunteer with the Berkeley Lions Club"
+                height={708}
+              />
             </div>
 
             <p className="text-sm text-gray-600 mt-4 text-center">

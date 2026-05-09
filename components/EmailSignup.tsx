@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { GHLForm } from './GHLForm';
 
 export function EmailSignup() {
   return (
@@ -19,25 +20,11 @@ export function EmailSignup() {
           <div className="bg-white rounded-lg p-6 md:p-8">
             {/* GoHighLevel Newsletter Form */}
             <div style={{ minHeight: '400px' }}>
-              <iframe
-                src="https://links.montbluai.com/widget/form/2OYFhNp8XUcECmuKQTrc"
-                style={{ width: '100%', height: '400px', border: 'none', borderRadius: '3px' }}
-                id="inline-2OYFhNp8XUcECmuKQTrc" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Berkeley Lions Newsletter Sign Up"
-                data-height="undefined"
-                data-layout-iframe-id="inline-2OYFhNp8XUcECmuKQTrc"
-                data-form-id="2OYFhNp8XUcECmuKQTrc"
-                title="Berkeley Lions Newsletter Sign Up"
-              >
-              </iframe>
-              <script src="https://links.montbluai.com/js/form_embed.js"></script>
+              <GHLForm
+                formId="2OYFhNp8XUcECmuKQTrc"
+                formName="Berkeley Lions Newsletter Sign Up"
+                height={400}
+              />
             </div>
             
             <p className="text-sm text-gray-600 mt-4">

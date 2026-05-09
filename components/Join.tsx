@@ -1,5 +1,6 @@
 import { DollarSign, UserCheck, Award, Heart } from 'lucide-react';
 import { Button } from './ui/button';
+import { GHLForm } from './GHLForm';
 
 export function Join() {
   return (
@@ -32,25 +33,11 @@ export function Join() {
 
             {/* GoHighLevel Membership Form */}
             <div style={{ minHeight: '614px' }}>
-              <iframe
-                src="https://links.montbluai.com/widget/form/KvQ7hz6FwjAe4YVJj92i"
-                style={{ width: '100%', height: '614px', border: 'none', borderRadius: '3px' }}
-                id="inline-KvQ7hz6FwjAe4YVJj92i" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Join the Berkeley Lions Club"
-                data-height="614"
-                data-layout-iframe-id="inline-KvQ7hz6FwjAe4YVJj92i"
-                data-form-id="KvQ7hz6FwjAe4YVJj92i"
-                title="Join the Berkeley Lions Club"
-              >
-              </iframe>
-              <script src="https://links.montbluai.com/js/form_embed.js"></script>
+              <GHLForm
+                formId="KvQ7hz6FwjAe4YVJj92i"
+                formName="Join the Berkeley Lions Club"
+                height={614}
+              />
             </div>
 
             <p className="text-sm text-gray-600 mt-6 text-center">
