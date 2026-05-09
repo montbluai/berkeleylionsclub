@@ -1,7 +1,11 @@
 import { ExternalLink, Globe, History, Calendar, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 
-export function About() {
+interface AboutProps {
+  onNavigate: (page: string) => void;
+}
+
+export function About({ onNavigate }: AboutProps) {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
@@ -129,15 +133,15 @@ export function About() {
               Join a community of dedicated volunteers making Berkeley a better place
             </p>
             <Button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => onNavigate('join')}
               className="text-lg px-8 py-6"
               style={{ backgroundColor: '#f2ca47', color: '#1740a5' }}
-              aria-label="Scroll to top of page to access membership form"
+              aria-label="Go to the Join Us page"
             >
               Join Berkeley Lions Club
             </Button>
             <p className="text-white/80 text-sm mt-4">
-              Click to return to the top and learn about membership
+              Learn about membership and express your interest
             </p>
           </div>
         </div>

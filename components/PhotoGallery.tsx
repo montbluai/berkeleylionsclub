@@ -63,7 +63,11 @@ interface GalleryImage {
   category: string;
 }
 
-export function PhotoGallery() {
+interface PhotoGalleryProps {
+  onNavigate: (page: string, targetId?: string) => void;
+}
+
+export function PhotoGallery({ onNavigate }: PhotoGalleryProps) {
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(fallbackImages);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -350,6 +354,7 @@ export function PhotoGallery() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
+                  onClick={() => onNavigate('home', 'upcoming-events')}
                   className="px-6 py-3 rounded-lg text-white transition-all hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
                   style={{ 
                     backgroundColor: '#1740a5',
@@ -363,6 +368,7 @@ export function PhotoGallery() {
                   View Upcoming Events
                 </button>
                 <button
+                  onClick={() => onNavigate('join')}
                   className="px-6 py-3 rounded-lg transition-all hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
                   style={{ 
                     backgroundColor: '#f2ca47', 

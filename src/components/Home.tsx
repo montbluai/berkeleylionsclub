@@ -364,28 +364,30 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Events Calendar - All Events */}
-      <EventsCalendar
-        calendars={[
-          {
-            id: '44079359e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
-            name: '🤝 Volunteer Opportunities',
-            color: '#00338D'
-          },
-          {
-            id: '230dbe79b903ae2fa91d462591b91a12c751a69972ac68c0e6d612779836ea29@group.calendar.google.com',
-            name: '💰 Fundraising Events',
-            color: '#EBB700'
-          },
-          {
-            id: 'f3cdc1051ae2cf0820279bbb8d51621da9cc2266ba33405e132a9c7a600b2bec@group.calendar.google.com',
-            name: '📋 Member Meetings',
-            color: '#7A2582'
-          }
-        ]}
-        title="Upcoming Events"
-        description="Stay up to date with all Berkeley Lions Club activities. Toggle event types to customize your view."
-        showToggle={true}
-      />
+      <div id="upcoming-events">
+        <EventsCalendar
+          calendars={[
+            {
+              id: '44079359e25481954fdb2a82e75f3cb977cb897283481cd2c8c8c0b45882d2a8@group.calendar.google.com',
+              name: '🤝 Volunteer Opportunities',
+              color: '#00338D'
+            },
+            {
+              id: '230dbe79b903ae2fa91d462591b91a12c751a69972ac68c0e6d612779836ea29@group.calendar.google.com',
+              name: '💰 Fundraising Events',
+              color: '#EBB700'
+            },
+            {
+              id: 'f3cdc1051ae2cf0820279bbb8d51621da9cc2266ba33405e132a9c7a600b2bec@group.calendar.google.com',
+              name: '📋 Member Meetings',
+              color: '#7A2582'
+            }
+          ]}
+          title="Upcoming Events"
+          description="Stay up to date with all Berkeley Lions Club activities. Toggle event types to customize your view."
+          showToggle={true}
+        />
+      </div>
 
       {/* Flyer Modal */}
       {isFlyerModalOpen && (

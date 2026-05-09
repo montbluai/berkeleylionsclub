@@ -18,6 +18,7 @@ type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'co
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [scrollTargetId, setScrollTargetId] = useState<string | null>(null);
 
   // Initialize demo featured event if none exists or if existing event is past
   useEffect(() => {
@@ -71,9 +72,24 @@ export default function App() {
     }
   }, []);
 
-  const handleNavigate = (page: Page) => {
+  useEffect(() => {
+    if (!scrollTargetId) return;
+
+    const timer = window.setTimeout(() => {
+      const target = document.getElementById(scrollTargetId);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setScrollTargetId(null);
+    }, 100);
+
+    return () => window.clearTimeout(timer);
+  }, [currentPage, scrollTargetId]);
+
+  const handleNavigate = (page: Page, targetId?: string) => {
+    setScrollTargetId(targetId ?? null);
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!targetId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const renderPage = () => {
@@ -81,9 +97,9 @@ export default function App() {
       case 'home':
         return <Home onNavigate={handleNavigate} />;
       case 'about':
-        return <About />;
+        return <About onNavigate={handleNavigate} />;
       case 'gallery':
-        return <PhotoGallery />;
+        return <PhotoGallery onNavigate={handleNavigate} />;
       case 'volunteer':
         return <Volunteer />;
       case 'join':
