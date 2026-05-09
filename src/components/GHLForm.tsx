@@ -1,25 +1,10 @@
-import { useEffect } from 'react';
-
 interface GHLFormProps {
   formId: string;
   formName: string;
   height: number;
 }
 
-const GHL_SCRIPT_ID = 'ghl-form-embed-script';
-const GHL_SCRIPT_SRC = 'https://links.montbluai.com/js/form_embed.js';
-
 export function GHLForm({ formId, formName, height }: GHLFormProps) {
-  useEffect(() => {
-    if (document.getElementById(GHL_SCRIPT_ID)) return;
-
-    const script = document.createElement('script');
-    script.id = GHL_SCRIPT_ID;
-    script.src = GHL_SCRIPT_SRC;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <iframe
       src={`https://links.montbluai.com/widget/form/${formId}`}
