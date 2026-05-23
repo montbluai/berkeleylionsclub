@@ -41,7 +41,7 @@ export function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-xl p-8">
             <div className="text-center mb-8">
               <div className="flex justify-center mb-4">
-                <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" className="h-20 w-20" />
+                <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" referrerPolicy="no-referrer" className="h-20 w-20" />
               </div>
               <h1 className="text-3xl mb-2" style={{ color: '#1740a5' }}>
                 Admin Dashboard
@@ -93,7 +93,7 @@ export function AdminDashboard() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-3">
-              <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" className="h-12 w-12" />
+              <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" referrerPolicy="no-referrer" className="h-12 w-12" />
               <h1 className="text-2xl" style={{ color: '#1740a5' }}>
                 Admin Dashboard
               </h1>

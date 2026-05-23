@@ -51,7 +51,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Logo & Tagline */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" className="h-16 w-16" />
+              <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club" referrerPolicy="no-referrer" className="h-16 w-16" />
               <div>
                 <div className="text-xl">Berkeley Lions Club</div>
                 <div className="text-sm" style={{ color: '#f2ca47' }}>We Serve</div>

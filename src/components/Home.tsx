@@ -1,5 +1,5 @@
 import { Button } from './ui/button';
-import { ChevronLeft, ChevronRight, Eye, Heart, Users, HandHeart, Calendar, MapPin, Play, Pause, Ticket, X, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Heart, Users, HandHeart, Play, Pause, X, Download } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { EventsCalendar } from './EventsCalendar';
 
@@ -30,11 +30,9 @@ export function Home({ onNavigate }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isFlyerModalOpen, setIsFlyerModalOpen] = useState(false);
-  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   const carouselRef = useRef<HTMLElement>(null);
   const mainContentRef = useRef<HTMLElement>(null);
   const flyerTriggerRef = useRef<HTMLImageElement>(null);
-  const lastFocusedElement = useRef<HTMLElement | null>(null);
 
   // Check for prefers-reduced-motion and auto-pause if enabled
   useEffect(() => {
@@ -87,24 +85,18 @@ export function Home({ onNavigate }: HomeProps) {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        if (isTicketModalOpen) {
-          setIsTicketModalOpen(false);
-          // Return focus to the last focused element
-          if (lastFocusedElement.current) {
-            lastFocusedElement.current.focus();
-          }
-        } else if (isFlyerModalOpen) {
+        if (isFlyerModalOpen) {
           setIsFlyerModalOpen(false);
           flyerTriggerRef.current?.focus();
         }
       }
     };
     
-    if (isTicketModalOpen || isFlyerModalOpen) {
+    if (isFlyerModalOpen) {
       document.addEventListener('keydown', handleEsc);
       return () => document.removeEventListener('keydown', handleEsc);
     }
-  }, [isTicketModalOpen, isFlyerModalOpen]);
+  }, [isFlyerModalOpen]);
 
   return (
     <div>
@@ -141,6 +133,7 @@ export function Home({ onNavigate }: HomeProps) {
             <img
               src={slide.url}
               alt={slide.caption}
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
@@ -305,8 +298,9 @@ export function Home({ onNavigate }: HomeProps) {
                 {/* Event Flyer - Clickable */}
                 <div className="w-full md:w-2/5 flex-shrink-0">
                   <img 
-                    src="https://i.imgur.com/18gfyLU.jpg"
-                    alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Event benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                    src="https://i.imgur.com/pgOgPK2.jpeg"
+                    alt="Berkeley Lions Club presents A Benefit for Pinecones and Portals at the Middle East Cafe, 2056 San Pablo Avenue, Berkeley, on Election Night, June 2, from 6 PM to close. Free treat if you present your I Voted sticker."
+                    referrerPolicy="no-referrer"
                     className="w-full rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
                     onClick={() => setIsFlyerModalOpen(true)}
                     role="button"
@@ -327,27 +321,27 @@ export function Home({ onNavigate }: HomeProps) {
                 {/* Event Details */}
                 <div className="flex-1 text-left">
                   <h3 className="text-2xl mb-4" style={{ color: '#00338D' }}>
-                    Berkeley Lions Casino Night 2026
+                    Pinecones and Portals
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">
-                    Join us for our first annual Casino Night event! An evening of fun, food, and activities to support our community service programs.
+                    Join us for an Election Night benefit at Middle East Cafe. Bring your "I Voted" sticker and enjoy a free treat while supporting Pinecones and Portals.
                   </p>
                   <p className="mb-4" style={{ color: '#00338D' }}>
-                    <strong>Saturday, May 30th, 2026</strong><br />
-                    Doors at 6:00 PM to 10:00 PM<br />
-                    Northbrae Community Church, 941 the Alameda, Berkeley, CA
+                    <strong>Tuesday, June 2nd, 2026</strong><br />
+                    6:00 PM to close<br />
+                    Middle East Cafe, 2056 San Pablo Avenue, Berkeley, CA
                   </p>
                 </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  onClick={() => setIsTicketModalOpen(true)}
+                  onClick={() => setIsFlyerModalOpen(true)}
                   className="text-lg px-8 py-4 inline-flex items-center justify-center gap-2"
                   style={{ backgroundColor: '#EBB700', color: '#00338D' }}
                 >
-                  <Ticket size={20} aria-hidden="true" />
-                  Buy Tickets
+                  <Download size={20} aria-hidden="true" />
+                  View Flyer
                 </Button>
                 <Button
                   onClick={() => onNavigate('volunteer')}
@@ -413,8 +407,9 @@ export function Home({ onNavigate }: HomeProps) {
 
             {/* Download Button */}
             <a
-              href="https://i.imgur.com/18gfyLU.jpg"
-              download="Berkeley-Lions-Casino-Night-2026-Flyer.jpg"
+              href="https://i.imgur.com/pgOgPK2.jpeg"
+              download="Berkeley-Lions-Pinecones-and-Portals-2026-Flyer.jpg"
+              referrerPolicy="no-referrer"
               className="absolute top-4 left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 inline-flex items-center gap-2"
               aria-label="Download flyer"
             >
@@ -424,93 +419,12 @@ export function Home({ onNavigate }: HomeProps) {
             {/* Scrollable Image Container */}
             <div className="w-full h-full overflow-auto flex items-start justify-center p-4">
               <img
-                src="https://i.imgur.com/18gfyLU.jpg"
-                alt="Berkeley Lions Club Casino Night 2026. Saturday, May 30, 2026. Northbrae Community Church, 941 The Alameda, Berkeley, California. Doors 6:00 PM to Closing 10:00 PM. $75 per ticket. $1000 Sponsor Tables (10 tickets per sponsor table). Buffet Dinner. No Host Bar. Roaring '20s Theme. Costume Contest. Blackjack, Roulette, Craps. A night of: Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Try Your Luck and Win Big! Event benefiting our local community projects, the Lions Center for the Visually Impaired, and the Berkeley Youth Alternative."
+                src="https://i.imgur.com/pgOgPK2.jpeg"
+                alt="Berkeley Lions Club presents A Benefit for Pinecones and Portals at the Middle East Cafe, 2056 San Pablo Avenue, Berkeley, on Election Night, June 2, from 6 PM to close. Free treat if you present your I Voted sticker."
+                referrerPolicy="no-referrer"
                 className="w-full max-w-full h-auto"
                 id="flyer-modal-title"
               />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Ticket Modal */}
-      {isTicketModalOpen && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50"
-          onClick={() => setIsTicketModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="ticket-modal-title"
-        >
-          <div
-            className="relative bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsTicketModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-              aria-label="Close modal"
-            >
-              <X size={24} />
-            </button>
-
-            {/* Modal Title */}
-            <h2 id="ticket-modal-title" className="text-3xl mb-2 text-center" style={{ color: '#00338D' }}>
-              Choose Your Ticket
-            </h2>
-            <p className="text-center text-gray-600 mb-8">
-              Berkeley Lions Casino Night 2026 • May 30, 2026
-            </p>
-
-            {/* Ticket Options */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Single Ticket */}
-              <div className="border-2 rounded-lg p-6 text-center hover:shadow-lg transition-shadow" style={{ borderColor: '#00338D' }}>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#00338D' }}>
-                  <Ticket className="text-white" size={32} aria-hidden="true" />
-                </div>
-                <h3 className="text-2xl mb-2" style={{ color: '#00338D' }}>Single Tickets</h3>
-                <p className="text-4xl mb-4" style={{ color: '#00338D' }}>$75</p>
-                <p className="text-gray-700 mb-6">
-                  Individual admission with buffet dinner, gaming chips, and entertainment
-                </p>
-                <Button
-                  onClick={() => window.open('https://square.link/u/glCEEYYF', '_blank')}
-                  className="w-full text-white text-lg px-6 py-3"
-                  style={{ backgroundColor: '#00338D' }}
-                >
-                  Purchase Single Tickets
-                </Button>
-              </div>
-
-              {/* Sponsor Table */}
-              <div className="border-2 rounded-lg p-6 text-center hover:shadow-lg transition-shadow relative" style={{ borderColor: '#EBB700' }}>
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-sm font-semibold text-white" style={{ backgroundColor: '#7A2582' }}>
-                  Best Value
-                </div>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#EBB700' }}>
-                  <Users className="text-white" size={32} aria-hidden="true" />
-                </div>
-                <h3 className="text-2xl mb-2" style={{ color: '#00338D' }}>Sponsor Table</h3>
-                <p className="text-4xl mb-4" style={{ color: '#00338D' }}>$1,000</p>
-                <p className="text-gray-700 mb-6">
-                  Table of 10 with premium seating, company recognition, and all the perks
-                </p>
-                <Button
-                  onClick={() => window.open('https://square.link/u/tqCLM2qY', '_blank')}
-                  className="w-full text-lg px-6 py-3"
-                  style={{ backgroundColor: '#EBB700', color: '#00338D' }}
-                >
-                  Purchase Sponsor Table
-                </Button>
-              </div>
-            </div>
-
-            {/* Additional Info */}
-            <div className="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-600">
-              <p>Proceeds benefit local community projects and vision care programs</p>
             </div>
           </div>
         </div>

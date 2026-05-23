@@ -23,21 +23,88 @@ interface FeaturedEvent {
   additionalInfo?: string;
 }
 
+const FEATURED_EVENT_VERSION = 'pinecones-portals-2026-06-02-v1';
+
+const getDefaultPineconesAndPortalsEvent = (): FeaturedEvent => ({
+  posterUrl: 'https://i.imgur.com/pgOgPK2.jpeg',
+  eventName: 'Pinecones and Portals',
+  description: 'Join us for an Election Night benefit at Middle East Cafe. Volunteers can help welcome guests and support this community event.',
+  date: '2026-06-02',
+  time: '6:00 PM to close',
+  locationName: 'Middle East Cafe',
+  address: '2056 San Pablo Avenue, Berkeley, CA',
+  volunteersNeeded: 'Community volunteers welcome',
+  ageRequirement: 'All ages welcome',
+  volunteerTasks: [
+    'Welcome attendees',
+    'Help guests with event information',
+    'Support check-in and community outreach',
+    'Share Berkeley Lions Club information',
+    'Help with setup and cleanup',
+    'General event support'
+  ],
+  isFree: true,
+  togoAvailable: false,
+  additionalInfo: 'Bring your "I Voted" sticker for a free treat. No experience necessary - we provide guidance and all supplies!'
+});
+
+const isCanceledFeaturedEvent = (event: FeaturedEvent) =>
+  event.date === '2026-05-30' ||
+  event.posterUrl === 'https://i.imgur.com/18gfyLU.jpg' ||
+  event.eventName?.toLowerCase().includes('casino night');
+
+const isPastEvent = (event: FeaturedEvent, today: Date) => {
+  const eventDate = new Date(event.date);
+  eventDate.setHours(0, 0, 0, 0);
+  return eventDate < today;
+};
+
+const syncFeaturedEventStorage = () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const storedVersion = localStorage.getItem('featured_event_version');
+  const storedQueue = localStorage.getItem('featured_event_queue');
+  let eventQueue: FeaturedEvent[] = [];
+
+  if (storedQueue) {
+    try {
+      eventQueue = JSON.parse(storedQueue);
+    } catch (error) {
+      console.error('Error parsing featured event queue:', error);
+    }
+  }
+
+  eventQueue = eventQueue.filter((event) => !isCanceledFeaturedEvent(event) && !isPastEvent(event, today));
+
+  const currentFeaturedEvent = getDefaultPineconesAndPortalsEvent();
+  const hasCurrentFeaturedEvent = eventQueue.some(
+    (event) => event.eventName === currentFeaturedEvent.eventName && event.date === currentFeaturedEvent.date
+  );
+
+  if (storedVersion !== FEATURED_EVENT_VERSION && !isPastEvent(currentFeaturedEvent, today) && !hasCurrentFeaturedEvent) {
+    eventQueue = [currentFeaturedEvent, ...eventQueue];
+  }
+
+  localStorage.setItem('featured_event_queue', JSON.stringify(eventQueue));
+  localStorage.setItem('featured_event_version', FEATURED_EVENT_VERSION);
+
+  return eventQueue;
+};
+
 export function Volunteer() {
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
 
   useEffect(() => {
     const loadFeaturedEvent = () => {
       try {
-        const stored = localStorage.getItem('featured_event_queue');
-        if (stored) {
-          const eventQueue = JSON.parse(stored);
-          
-          // Find the next upcoming event
+        const eventQueue = syncFeaturedEventStorage();
+
+        if (eventQueue.length > 0) {
           const today = new Date();
           today.setHours(0, 0, 0, 0);
-          
-          const upcomingEvent = eventQueue.find((event: any) => {
+
+          const upcomingEvent = eventQueue.find((event) => {
             const eventDate = new Date(event.date);
             eventDate.setHours(0, 0, 0, 0);
             return eventDate >= today;
@@ -46,47 +113,22 @@ export function Volunteer() {
           if (upcomingEvent) {
             setFeaturedEvent(upcomingEvent);
           } else {
-            // Fallback to default Casino Night event
-            setFeaturedEvent(getDefaultCasinoNightEvent());
+            // Fallback to default Pinecones and Portals event
+            setFeaturedEvent(getDefaultPineconesAndPortalsEvent());
           }
         } else {
-          // No localStorage data - use default Casino Night event
-          setFeaturedEvent(getDefaultCasinoNightEvent());
+          // No localStorage data - use default Pinecones and Portals event
+          setFeaturedEvent(getDefaultPineconesAndPortalsEvent());
         }
       } catch (error) {
         console.error('Error loading featured event:', error);
-        // Fallback to default Casino Night event on error
-        setFeaturedEvent(getDefaultCasinoNightEvent());
+        // Fallback to default Pinecones and Portals event on error
+        setFeaturedEvent(getDefaultPineconesAndPortalsEvent());
       }
     };
 
     loadFeaturedEvent();
   }, []);
-
-  // Default Casino Night Event
-  const getDefaultCasinoNightEvent = (): FeaturedEvent => ({
-    posterUrl: 'https://i.imgur.com/18gfyLU.jpg',
-    eventName: 'Berkeley Lions Casino Night 2026',
-    description: 'Join us for our first annual Casino Night! We need 20-30 volunteers of all ages to help make this event a success.',
-    date: '2026-05-30',
-    time: '6:00 PM to 10:00 PM',
-    locationName: 'Northbrae Community Church',
-    address: '941 the Alameda, Berkeley, CA',
-    volunteersNeeded: '20-30 volunteers of all ages',
-    ageRequirement: 'All ages welcome',
-    volunteerTasks: [
-      'Serve cocktails and beverages',
-      'Set up and break down the casino tables',
-      'Set up and break down buffet dinner tables',
-      'Welcome casino guests',
-      'Help with orders',
-      'General event support'
-    ],
-    isFree: false,
-    ticketPrice: '$75 per ticket',
-    togoAvailable: false,
-    additionalInfo: 'Roaring \'20s theme - Costume contest, Blackjack, Roulette, Craps, Raffle Prizes, Live Vegas Lounge Act, Dancing & Entertainment. Event benefiting our local community projects. No experience necessary - we provide training and all supplies!'
-  });
 
   const getEventBadge = (dateString: string) => {
     const date = new Date(dateString);

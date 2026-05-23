@@ -64,7 +64,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             }}
             aria-label="Berkeley Lions Club, We Serve - Go to homepage"
           >
-            <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club Logo" className="h-16 w-16" />
+            <img src="https://i.imgur.com/M3Rdn46.png" alt="Berkeley Lions Club Logo" referrerPolicy="no-referrer" className="h-16 w-16" />
             <div className="text-left hidden sm:block whitespace-nowrap">
               <div style={{ color: '#00338D' }}>Berkeley Lions Club</div>
               <div className="text-sm" style={{ color: '#00338D' }}>We Serve</div>
