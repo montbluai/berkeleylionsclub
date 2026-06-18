@@ -16,8 +16,15 @@ import { AdminDashboard } from './components/AdminDashboard';
 
 type Page = 'home' | 'about' | 'gallery' | 'volunteer' | 'join' | 'donate' | 'contact' | 'privacy' | 'privacy-policy' | 'terms' | 'disclosures' | 'admin-upload';
 
+const pageIds: Page[] = ['home', 'about', 'gallery', 'volunteer', 'join', 'donate', 'contact', 'privacy', 'privacy-policy', 'terms', 'disclosures', 'admin-upload'];
+
+const getPageFromHash = (): Page => {
+  const hash = window.location.hash.replace('#', '');
+  return pageIds.includes(hash as Page) ? (hash as Page) : 'home';
+};
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [currentPage, setCurrentPage] = useState<Page>(() => getPageFromHash());
   const [scrollTargetId, setScrollTargetId] = useState<string | null>(null);
 
   // Initialize demo featured event if none exists or if existing event is past
@@ -73,6 +80,16 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentPage(getPageFromHash());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  useEffect(() => {
     if (!scrollTargetId) return;
 
     const timer = window.setTimeout(() => {
@@ -87,6 +104,9 @@ export default function App() {
   const handleNavigate = (page: Page, targetId?: string) => {
     setScrollTargetId(targetId ?? null);
     setCurrentPage(page);
+    const nextHash = targetId ?? page;
+    const nextUrl = page === 'home' && !targetId ? window.location.pathname : `#${nextHash}`;
+    window.history.pushState(null, '', nextUrl);
     if (!targetId) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -101,7 +121,7 @@ export default function App() {
       case 'gallery':
         return <PhotoGallery onNavigate={handleNavigate} />;
       case 'volunteer':
-        return <Volunteer />;
+        return <Volunteer onNavigate={handleNavigate} />;
       case 'join':
         return <Join />;
       case 'donate':
