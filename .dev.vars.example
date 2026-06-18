@@ -1,0 +1,13 @@
+GHL_PRIVATE_INTEGRATION_TOKEN=pit-your-private-integration-token
+GHL_CALENDAR_ID=fVdt3UmX89lyOrk7iIsq
+GHL_LOCATION_ID=JNAfwzMJ5Pla2DIM97SO
+EVENT_TIME_ZONE=America/Los_Angeles
+
+# Optional. Defaults to 2021-07-28.
+# GHL_API_VERSION=2021-07-28
+
+# Optional. Defaults to the current deployed origin plus /#volunteer.
+# BLC_VOLUNTEER_URL=https://www.berkeleylionsclub.com/#volunteer
+
+# Optional. Use only if the default calendar endpoint needs to be overridden.
+# GHL_CALENDAR_EVENTS_URL=https://services.leadconnectorhq.com/calendars/events?calendarId=fVdt3UmX89lyOrk7iIsq&startTime=...&endTime=...

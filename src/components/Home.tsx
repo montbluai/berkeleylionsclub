@@ -1,7 +1,8 @@
 import { Button } from './ui/button';
-import { ChevronLeft, ChevronRight, Heart, Users, HandHeart, Play, Pause, X, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Heart, Users, HandHeart, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { EventsCalendar } from './EventsCalendar';
+import { UpcomingEventCard } from './UpcomingEventCard';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -29,10 +30,8 @@ const heroImages = [
 export function Home({ onNavigate }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isFlyerModalOpen, setIsFlyerModalOpen] = useState(false);
   const carouselRef = useRef<HTMLElement>(null);
   const mainContentRef = useRef<HTMLElement>(null);
-  const flyerTriggerRef = useRef<HTMLImageElement>(null);
 
   // Check for prefers-reduced-motion and auto-pause if enabled
   useEffect(() => {
@@ -80,23 +79,6 @@ export function Home({ onNavigate }: HomeProps) {
     mainContentRef.current?.focus();
     mainContentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  // Handle ESC key for modals
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (isFlyerModalOpen) {
-          setIsFlyerModalOpen(false);
-          flyerTriggerRef.current?.focus();
-        }
-      }
-    };
-    
-    if (isFlyerModalOpen) {
-      document.addEventListener('keydown', handleEsc);
-      return () => document.removeEventListener('keydown', handleEsc);
-    }
-  }, [isFlyerModalOpen]);
 
   return (
     <div>
@@ -286,76 +268,7 @@ export function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Featured Event */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-yellow-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl mb-6">
-              <span style={{ color: '#EBB700' }}>Featured</span> <span style={{ color: '#00338D' }}>Event</span>
-            </h2>
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
-              <div className="flex flex-col md:flex-row gap-6 items-center mb-6">
-                {/* Event Flyer - Clickable */}
-                <div className="w-full md:w-2/5 flex-shrink-0">
-                  <img 
-                    src="https://i.imgur.com/pgOgPK2.jpeg"
-                    alt="Berkeley Lions Club presents A Benefit for Pinecones and Portals at the Middle East Cafe, 2056 San Pablo Avenue, Berkeley, on Election Night, June 2, from 6 PM to close. Free treat if you present your I Voted sticker."
-                    referrerPolicy="no-referrer"
-                    className="w-full rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
-                    onClick={() => setIsFlyerModalOpen(true)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        setIsFlyerModalOpen(true);
-                      }
-                    }}
-                    ref={flyerTriggerRef}
-                  />
-                  <p className="text-sm text-gray-600 mt-2 text-center">
-                    Click to view full size
-                  </p>
-                </div>
-                
-                {/* Event Details */}
-                <div className="flex-1 text-left">
-                  <h3 className="text-2xl mb-4" style={{ color: '#00338D' }}>
-                    Pinecones and Portals
-                  </h3>
-                  <p className="text-lg text-gray-700 mb-4">
-                    Join us for an Election Night benefit at Middle East Cafe. Bring your "I Voted" sticker and enjoy a free treat while supporting Pinecones and Portals.
-                  </p>
-                  <p className="mb-4" style={{ color: '#00338D' }}>
-                    <strong>Tuesday, June 2nd, 2026</strong><br />
-                    6:00 PM to close<br />
-                    Middle East Cafe, 2056 San Pablo Avenue, Berkeley, CA
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  onClick={() => setIsFlyerModalOpen(true)}
-                  className="text-lg px-8 py-4 inline-flex items-center justify-center gap-2"
-                  style={{ backgroundColor: '#EBB700', color: '#00338D' }}
-                >
-                  <Download size={20} aria-hidden="true" />
-                  View Flyer
-                </Button>
-                <Button
-                  onClick={() => onNavigate('volunteer')}
-                  className="text-white text-lg px-8 py-4 inline-flex items-center justify-center gap-2"
-                  style={{ backgroundColor: '#00338D' }}
-                >
-                  <HandHeart size={20} aria-hidden="true" />
-                  Volunteer
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <UpcomingEventCard onNavigate={onNavigate} />
 
       {/* Events Calendar - All Events */}
       <div id="upcoming-events">
@@ -383,52 +296,6 @@ export function Home({ onNavigate }: HomeProps) {
         />
       </div>
 
-      {/* Flyer Modal */}
-      {isFlyerModalOpen && (
-        <div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-50"
-          onClick={() => setIsFlyerModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="flyer-modal-title"
-        >
-          <div
-            className="relative w-full h-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsFlyerModalOpen(false)}
-              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10"
-              aria-label="Close modal"
-            >
-              <X size={32} />
-            </button>
-
-            {/* Download Button */}
-            <a
-              href="https://i.imgur.com/pgOgPK2.jpeg"
-              download="Berkeley-Lions-Pinecones-and-Portals-2026-Flyer.jpg"
-              referrerPolicy="no-referrer"
-              className="absolute top-4 left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 inline-flex items-center gap-2"
-              aria-label="Download flyer"
-            >
-              <Download size={32} />
-            </a>
-
-            {/* Scrollable Image Container */}
-            <div className="w-full h-full overflow-auto flex items-start justify-center p-4">
-              <img
-                src="https://i.imgur.com/pgOgPK2.jpeg"
-                alt="Berkeley Lions Club presents A Benefit for Pinecones and Portals at the Middle East Cafe, 2056 San Pablo Avenue, Berkeley, on Election Night, June 2, from 6 PM to close. Free treat if you present your I Voted sticker."
-                referrerPolicy="no-referrer"
-                className="w-full max-w-full h-auto"
-                id="flyer-modal-title"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
